@@ -1,126 +1,266 @@
-<link href='https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic' rel='stylesheet' type='text/css'>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Curriculum Vitae of [Your Name]" />
+  <meta name="keywords" content="CV, resume, [Your Field], [Your Skills]" />
+  <meta name="author" content="[Your Name]" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grik Tadevosyan</title>
 
-<!-- MAIN CONTAINER -->
-		<div id="main_container">
-      <!-- HEADER -->
-      <div id="header">
-        <!-- LOGOTYPE/NAME -->
-        <div class="header_logotype_container">
-          <h1 class="logotype_name">Javier <span class="purple">Latorre</span></h1>
-          <h2 class="logotype_occupation">Frontend Web Developer</h2>
-        </div>
-        <!-- MAIN MENU -->
-        <div class="header_menu_container">
-          <ul class="download_print_buttons horizontal_list">
-            <li><a href="#"><span class="icon entypo-download"></span>Download CV</a></li>
-            <li><a href="#"><span class="icon entypo-print"></span>Print CV</a></li>
-          </ul>
-          <div class="clear"></div>
-          <ul class="header_menu horizontal_list">
-            <li><a class="no_border purple" href="#">Profile</a></li>
-            <li><a href="#">Education</a></li>
-            <li><a href="#">Skills</a></li>
-            <li><a href="#">Work Experience</a></li>
-            <li><a href="#">Featured Projects</a></li>
-            <li><a href="#">Awards</a></li>
-          </ul>
-        </div>
+  <!-- Optional: Custom CSS styling -->
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+
+    .cv-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover; /* Ensures the image maintains aspect ratio within the circle */
+      display: block;
+      margin: 0 auto 20px; /* centers the image and adds spacing below */
+    }
+
+    header h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1em;
+      color: #666;
+    }
+
+    /* Contact / Info Section */
+    .contact-info {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .contact-info a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      border-bottom: 2px solid #007acc;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      color: #007acc;
+    }
+
+    h3 {
+      font-size: 1.2em;
+      margin-bottom: 8px;
+    }
+
+    .section-content ul {
+      list-style-type: none;
+      margin-left: 0;
+    }
+
+    .section-content li {
+      margin-bottom: 10px;
+    }
+
+    .date {
+      font-weight: bold;
+      color: #555;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+
+    <!-- Header / Name / Title -->
+    <header>
+      <img src="5438391485910343507.jpg" alt="Profile Photo" class="profile-pic" />
+      <h1>Grik Tadevosyan</h1>
+      <p> MS student in Skoltech Data Science and Higher School Economics Math of Machine Learning programs, 
+        highly motivated Data Scientist and Robotician with a strong foundation in Machine Learning, Safe Reinforcement Learning, 
+        and Visual Language Models. 
+        Seeking to leverage extensive experience in simulation development and real-world experimentation to contribute to innovative projects in autonomous systems and robotics. 
+        Passionate about applying advanced algorithms to solve complex problems in dynamic environments. </p>
+    </header>
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <p><strong>Email:</strong> <a href="mailto:griktadevosyan@gmail.com">griktadevosyan@gmail.com</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/mrov9072" target="_blank">github.com/mrov9072</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/griktadevosyan//" target="_blank">https://www.linkedin.com/in/griktadevosyan/</a></p>
+      <p><strong>Website:</strong> <a href="https://mrov9072.github.io" target="_blank">mrov9072.github.io</a></p>
+      <p><strong>Resume:</strong> <a href="Resume_Grik_Tadevosyan.pdf" target="_blank">Download Resume</a></p>
+
+    </div>
+
+    <!-- Education Section -->
+    <section>
+      <h2>Education</h2>
+      <div class="section-content">
+        <ul>
+          <li>
+            <h3>Present Degree, Master's in Data Science</h3>
+            <p>Skolkovo Institute of Science and Technology "Data Science" and Higher School of Economics "Math of Machine Learning", 2023-</p>
+          </li>
+          <li>
+            <h3>Bachelor’s in Vanadzor State University</h3>
+            <p>Vanadzor State University Bachelor in Mathematics, 2016-2020</p>
+            <p>Graduated with honors, 
+              defended the thesis "Several Issues of Qualitative Theory of Ordinary Differential Equations and Some of Their Applications" with grade A</p>
+          </li>
+        </ul>
       </div>
-      <!-- LEFT COL -->
-      <div id="left_col">
-        <div class="profile_frame">
-          <div class="profile_picture"></div>
-          <!-- <img src="images/javier_latorre.jpg" alt="profile picture"> -->
-        </div>
-        <div class="hello_content">
-          <h2>Hello!</h2>
-          <p>I'm passionate about technology and human behavior, hardworker and a fast-learner with experience in around 10 different countries studying, working and volunteering.</p>
-        </div>
-        <div class="contact_details_content">
-          <h2>Contact details</h2>
-          <p class="purple">Phone:</p>
-          <p>+34 123 456 789</p>
-          <p class="purple">Email:</p>
-          <p>jlalovi@gmail.com</p>
-          <p class="purple">Adress:</p>
-          <p>Someplace, 5</p>
-          <p>Jaén, Spain</p>
-          <p>23001</p>
-        </div>
-        <a href="mailto:jlalovi@gmail.com" class="send_message_button">
-          <span class="cut1"></span>
-          <span class="cut2"></span>
-          <span class="content">Send me a message <span class="fontawesome-double-angle-right"></span></span>
-        </a>
-        <div class="get_social_content">
-          <h2>Get social</h2>
-          <ul class="social_icons horizontal_list">
-            <li><a class="facebook" href="https://www.facebook.com/jlalovi"><span class="entypo-facebook-circled"></span><span class="invisible">Facebook</span></a></li>
-            <li><a class="twitter" href="https://twitter.com/jlalovi"><span class="entypo-twitter-circled"></span><span class="invisible">Twitter</span></a></li>
-            <li><a class="linkedin" href="https://www.linkedin.com/in/jlalovi/en"><span class="entypo-linkedin-circled"></span><span class="invisible">LinkedIn</span></a></li>
-          </ul>
-        </div>
+    </section>
+
+    <!-- Research / Experience Section -->
+    <section>
+      <h2>Research & Experience</h2>
+      <div class="section-content">
+        <ul>
+          <li>
+            <h3>Safe RL Scientist </h3>
+            <p class="date">ISR Robotics lab - 2023-present</p>
+            <p>
+              To learn swarm of drones to land safely in environment with static obstacles 
+              <ul>
+                <li>Developed new environment with landing pads and static obstacles</li>
+                <li>Implemented new Safe RL algorithm with Python for obstacle avoidance</li>
+                <li>Transform the model from simulation to real</li>
+              </ul>
+            </p>
+          </li>
+          <li>
+            <h3>RL Lecturer</h3>
+            <p class="date">Russian Armenian University</p>
+            <p>
+              Read a small RL course in Russian Armenian University in Summer
+            </p>
+          </li>
+          <li>
+            <h3>Linear Algebra lecturer</h3>
+            <p class="date">Mathemic NGO - 2023 June-2023 August</p>
+            <p>
+              Read a Linear Algebra course for talanted students.
+            </p>
+          </li>
+          <li>
+            <h3>Python Developer and Data Scientist</h3>
+            <p class="date">Tesa Systems - 2022 August - 2023 August</p>
+            <p>
+              Create detection and tracking algorithms using OpenCV and ML algorithms for drones, working on Khadas and Raspberry Pi
+            </p>
+          </li>
+        </ul>
       </div>
-      <!-- PROFILE CONTENT -->
-      <div id="content_container">				
-        <div class="block">
-          <h1>Profile</h1>
-          <blockquote class="profile_quote">
-            <p>"There is no end to education. It is not that you read a book, pass an examination, and finish with education. The whole of life, from the moment you are born to the moment you die, is a process of learning."</p>
-            <p>Jiddu Krishnamurti.</p>
-            <span class="entypo-quote"></span>
-          </blockquote>
-        </div>
-        <div class="block">
-          <h2>A few words about me</h2>
-          <p>Until now, in my life, I change from active moments with a lot of variety, challenges and improvisations, to moments of tranquility and stability, being difficult to stay in a place during a long time. I consider myself a tolerant and respectful person with open mind and quite honest. I really like to listen people stories and backgrounds and their different experiences around the world.</p>				
-        </div>
-        <div class="horizontal_line">
-          <div class="line_left"></div>
-          <div class="left_circle"></div>
-          <div class="central_circle"></div>
-          <div class="right_circle"></div>
-          <div class="line_right"></div>
-        </div>
-        <div class="block">
-          <h2>Philosophy</h2>
-          <p>I belive in ethic and moral not in imposed rules that you "have to" do or follow.</p>
-          <div class="philosophy_content">
-            <p>I believe life is made from different shades of grey, not from black and white. Furthermore, as a human being with rationality, I think it is our duty to take care of the world and treat others as one would like others to treat oneself. This way of perceiving reality affects my beliefs and my way of behaving. Summarizing on several points:</p>
-            <ul>
-              <li>Pragmatic</li>
-              <li>Honest</li>
-              <li>Respectful</li>
-              <li>Open-minded</li>
-              <li>Coherent</li>
-            </ul>
-            <div class="clear"></div>
-          </div>
-        </div>
-        <div class="horizontal_line">
-          <div class="line_left"></div>
-          <div class="left_circle"></div>
-          <div class="central_circle"></div>
-          <div class="right_circle"></div>
-          <div class="line_right"></div>
-        </div>
-        <div class="last block">
-          <h2>Interests & Hobbies</h2>
-          <p>I'm passionate about technology and human behavior, both determine almost all my interests and hobbies:</p>
-          <ul>
-            <li>Visiting new places</li>
-            <li>Meeting people</li>
-            <li>Having new experiences</li>
-            <li>Hiking and Biking</li>
-            <li>Web Developing</li>
-            <li>Computer Gamming</li>
-            <li>Manga and Anime</li>
-          </ul>
-        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section>
+      <h2>Projects</h2>
+      <div class="section-content">
+        <ul>
+          <li>
+            <h3>Agile Opponent Overtaking in Drone Racing</h3>
+            <p class="date">Planning Algorithms in AI – Final Project (Grade: 98/100)</p>
+            <p>
+              <ul>
+                <li>Built a simulation environment to test drone racing strategies.</li>
+                <li>Optimized planning algorithms for real-time obstacle avoidance and overtaking.</li>
+                <li>Collaborated with peers to design experiments and analyze performance metrics.</li>
+              </ul>
+            </p>
+          </li>
+          <li>
+            <h3>Drone Racing with Computer Vision Based Reinforcement Learning</h3>
+            <p class="date">Drone Racing with Reinforcement Learning</p>
+            <p>
+              <ul>
+                <li>Annotate the data and create a gate detector with high accuracy</li>
+              </ul>
+            </p>
+          </li>
+        </ul>
       </div>
-      <div class="clear"></div>
-      <!-- FOOTER -->
-      <div id="footer">
-        <p class="footer_name">Javier Latorre CV 2015</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section>
+      <h2>Skills</h2>
+      <div class="section-content">
+        <ul>
+          <li><strong>Programming Languages:</strong> Python, C++, C#, Visual Basic</li>
+          <li><strong>Tools & Frameworks:</strong> gym_pybullet_drones, ROS, PyTorch, Unity, IsaacSim.</li>
+          <li><strong>Research Methods:</strong> Experimental design, data analysis, simulation, Attention Models and Transformers, RNN, 
+            Convolutional Neural Networks</li>
+          <li><strong>Other:</strong> Teaching, project management, leadership.</li>
+        </ul>
       </div>
-		</div>
+    </section>
+
+    <!-- Awards & Publications Section (Optional) -->
+    <section>
+      <h2>Awards & Publications</h2>
+      <div class="section-content">
+        <ul>
+          <li>
+            <h3>Award Title</h3>
+            <p class="date">https://github.com/larics/icuas24_competition/discussions/52</p>
+            <p>Successfully passed first stage and achieved a commendable 14th place in the second stage</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Grik Tadevosyan. All rights reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
