@@ -1,266 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="description" content="Curriculum Vitae of [Your Name]" />
-  <meta name="keywords" content="CV, resume, [Your Field], [Your Skills]" />
-  <meta name="author" content="[Your Name]" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grik Tadevosyan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oleg Sautenkov - Hacker CV</title>
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background: #0f0f0f;
+            color: #00ff00;
+            margin: 0;
+            padding: 0;
+        }
 
-  <!-- Optional: Custom CSS styling -->
-  <style>
-    /* Basic Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        header {
+            text-align: center;
+            padding: 2em 0;
+            border-bottom: 1px solid #00ff00;
+        }
 
-    body {
-      font-family: Arial, sans-serif;
-      color: #333;
-      line-height: 1.6;
-      background-color: #f5f5f5;
-      padding: 20px;
-    }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
 
-    .cv-container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+        header p {
+            font-size: 1.2em;
+        }
 
-    /* Header */
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+        nav {
+            text-align: center;
+            margin: 1em 0;
+        }
 
-    header .profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover; /* Ensures the image maintains aspect ratio within the circle */
-      display: block;
-      margin: 0 auto 20px; /* centers the image and adds spacing below */
-    }
+        nav a {
+            color: #00ff00;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
 
-    header h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-    header p {
-      font-size: 1.1em;
-      color: #666;
-    }
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            border: 1px solid #00ff00;
+            border-radius: 10px;
+            background: #1a1a1a;
+        }
 
-    /* Contact / Info Section */
-    .contact-info {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+        h2 {
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 0.5em;
+        }
 
-    .contact-info a {
-      color: #007acc;
-      text-decoration: none;
-    }
-    .contact-info a:hover {
-      text-decoration: underline;
-    }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-    /* Sections */
-    section {
-      margin-bottom: 30px;
-    }
+        ul li {
+            margin: 0.5em 0;
+        }
 
-    h2 {
-      font-size: 1.5em;
-      border-bottom: 2px solid #007acc;
-      margin-bottom: 10px;
-      padding-bottom: 5px;
-      color: #007acc;
-    }
-
-    h3 {
-      font-size: 1.2em;
-      margin-bottom: 8px;
-    }
-
-    .section-content ul {
-      list-style-type: none;
-      margin-left: 0;
-    }
-
-    .section-content li {
-      margin-bottom: 10px;
-    }
-
-    .date {
-      font-weight: bold;
-      color: #555;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 0.9em;
-      color: #999;
-    }
-  </style>
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            border-top: 1px solid #00ff00;
+            margin-top: 2em;
+        }
+    </style>
 </head>
 <body>
-  <div class="cv-container">
-
-    <!-- Header / Name / Title -->
     <header>
-      <img src="5438391485910343507.jpg" alt="Profile Photo" class="profile-pic" />
-      <h1>Grik Tadevosyan</h1>
-      <p> MS student in Skoltech Data Science and Higher School Economics Math of Machine Learning programs, 
-        highly motivated Data Scientist and Robotician with a strong foundation in Machine Learning, Safe Reinforcement Learning, 
-        and Visual Language Models. 
-        Seeking to leverage extensive experience in simulation development and real-world experimentation to contribute to innovative projects in autonomous systems and robotics. 
-        Passionate about applying advanced algorithms to solve complex problems in dynamic environments. </p>
+        <h1>Oleg Sautenkov</h1>
+        <p>Cybersecurity Specialist | Developer | Ethical Hacker</p>
     </header>
 
-    <!-- Contact Info -->
-    <div class="contact-info">
-      <p><strong>Email:</strong> <a href="mailto:griktadevosyan@gmail.com">griktadevosyan@gmail.com</a></p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/mrov9072" target="_blank">github.com/mrov9072</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/griktadevosyan//" target="_blank">https://www.linkedin.com/in/griktadevosyan/</a></p>
-      <p><strong>Website:</strong> <a href="https://mrov9072.github.io" target="_blank">mrov9072.github.io</a></p>
-      <p><strong>Resume:</strong> <a href="Resume_Grik_Tadevosyan.pdf" target="_blank">Download Resume</a></p>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-    </div>
-
-    <!-- Education Section -->
-    <section>
-      <h2>Education</h2>
-      <div class="section-content">
-        <ul>
-          <li>
-            <h3>Present Degree, Master's in Data Science</h3>
-            <p>Skolkovo Institute of Science and Technology "Data Science" and Higher School of Economics "Math of Machine Learning", 2023-</p>
-          </li>
-          <li>
-            <h3>Bachelor’s in Vanadzor State University</h3>
-            <p>Vanadzor State University Bachelor in Mathematics, 2016-2020</p>
-            <p>Graduated with honors, 
-              defended the thesis "Several Issues of Qualitative Theory of Ordinary Differential Equations and Some of Their Applications" with grade A</p>
-          </li>
-        </ul>
-      </div>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I am Oleg Sautenkov, a cybersecurity enthusiast and developer. With expertise in ethical hacking and secure coding, I aim to build robust systems and keep the digital world secure.</p>
     </section>
 
-    <!-- Research / Experience Section -->
-    <section>
-      <h2>Research & Experience</h2>
-      <div class="section-content">
+    <section id="skills">
+        <h2>Skills</h2>
         <ul>
-          <li>
-            <h3>Safe RL Scientist </h3>
-            <p class="date">ISR Robotics lab - 2023-present</p>
-            <p>
-              To learn swarm of drones to land safely in environment with static obstacles 
-              <ul>
-                <li>Developed new environment with landing pads and static obstacles</li>
-                <li>Implemented new Safe RL algorithm with Python for obstacle avoidance</li>
-                <li>Transform the model from simulation to real</li>
-              </ul>
-            </p>
-          </li>
-          <li>
-            <h3>RL Lecturer</h3>
-            <p class="date">Russian Armenian University</p>
-            <p>
-              Read a small RL course in Russian Armenian University in Summer
-            </p>
-          </li>
-          <li>
-            <h3>Linear Algebra lecturer</h3>
-            <p class="date">Mathemic NGO - 2023 June-2023 August</p>
-            <p>
-              Read a Linear Algebra course for talanted students.
-            </p>
-          </li>
-          <li>
-            <h3>Python Developer and Data Scientist</h3>
-            <p class="date">Tesa Systems - 2022 August - 2023 August</p>
-            <p>
-              Create detection and tracking algorithms using OpenCV and ML algorithms for drones, working on Khadas and Raspberry Pi
-            </p>
-          </li>
+            <li>Penetration Testing</li>
+            <li>Network Security</li>
+            <li>Python, JavaScript</li>
+            <li>Secure Code Review</li>
+            <li>Cloud Security</li>
         </ul>
-      </div>
     </section>
 
-    <!-- Projects Section -->
-    <section>
-      <h2>Projects</h2>
-      <div class="section-content">
+    <section id="projects">
+        <h2>Projects</h2>
         <ul>
-          <li>
-            <h3>Agile Opponent Overtaking in Drone Racing</h3>
-            <p class="date">Planning Algorithms in AI – Final Project (Grade: 98/100)</p>
-            <p>
-              <ul>
-                <li>Built a simulation environment to test drone racing strategies.</li>
-                <li>Optimized planning algorithms for real-time obstacle avoidance and overtaking.</li>
-                <li>Collaborated with peers to design experiments and analyze performance metrics.</li>
-              </ul>
-            </p>
-          </li>
-          <li>
-            <h3>Drone Racing with Computer Vision Based Reinforcement Learning</h3>
-            <p class="date">Drone Racing with Reinforcement Learning</p>
-            <p>
-              <ul>
-                <li>Annotate the data and create a gate detector with high accuracy</li>
-              </ul>
-            </p>
-          </li>
+            <li><strong>Project 1:</strong> Security Scanner Tool - A Python-based tool to identify vulnerabilities.</li>
+            <li><strong>Project 2:</strong> Encrypted Chat Application - Ensures secure communication with end-to-end encryption.</li>
+            <li><strong>Project 3:</strong> Cloud Security Analyzer - Monitors and secures cloud configurations.</li>
         </ul>
-      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section>
-      <h2>Skills</h2>
-      <div class="section-content">
-        <ul>
-          <li><strong>Programming Languages:</strong> Python, C++, C#, Visual Basic</li>
-          <li><strong>Tools & Frameworks:</strong> gym_pybullet_drones, ROS, PyTorch, Unity, IsaacSim.</li>
-          <li><strong>Research Methods:</strong> Experimental design, data analysis, simulation, Attention Models and Transformers, RNN, 
-            Convolutional Neural Networks</li>
-          <li><strong>Other:</strong> Teaching, project management, leadership.</li>
-        </ul>
-      </div>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:oleg.sautenkov@example.com">oleg.sautenkov@example.com</a></p>
+        <p>GitHub: <a href="https://github.com/yourusername" target="_blank">https://github.com/yourusername</a></p>
     </section>
 
-    <!-- Awards & Publications Section (Optional) -->
-    <section>
-      <h2>Awards & Publications</h2>
-      <div class="section-content">
-        <ul>
-          <li>
-            <h3>Award Title</h3>
-            <p class="date">https://github.com/larics/icuas24_competition/discussions/52</p>
-            <p>Successfully passed first stage and achieved a commendable 14th place in the second stage</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
-      <p>&copy; 2024 Grik Tadevosyan. All rights reserved.</p>
+        <p>&copy; 2025 Oleg Sautenkov | Hacker Theme CV</p>
     </footer>
-
-  </div>
 </body>
 </html>
