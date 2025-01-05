@@ -103,7 +103,7 @@
     <h1>Oleg Sautenkov</h1>
     <p>GenAI Researcher | Robotics & AI Specialist | Innovator</p>
     <img src="profile.jpg" alt="Oleg Sautenkov">
-    <div class="uav-animation">
+    <div class="ufo-animation">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" class="flying-ufo">
             <!-- UFO Body -->
             <ellipse cx="200" cy="100" rx="100" ry="40" fill="#4caf50" />
@@ -125,36 +125,35 @@
     </header>
 
     <style>
-    .uav-animation {
-        margin-top: 1em;
-        position: relative;
-        width: 100%;
-        height: 50px;
-        overflow: hidden;
-    }
-
-    .flying-ufo {
-        position: absolute;
-        top: 10px;
-        left: -50px;
-        animation: fly 40s linear infinite;
-        width: 50px;
-        height: 25px;
-    }
-
-    @keyframes fly {
-        0% {
+        .ufo-animation {
+            margin-top: 1em;
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+    
+        .flying-ufo {
+            position: absolute;
+            top: 0;
             left: -200px;
+            animation: fly-ufo 8s linear infinite;
+            width: 400px;
+            height: 200px;
         }
-        50% {
-            left: 100%;
+    
+        @keyframes fly-ufo {
+            0% {
+                left: -200px;
+            }
+            50% {
+                left: 100%;
+            }
+            100% {
+                left: -200px;
+            }
         }
-        100% {
-            left: -200px;
-        }
-    }
     </style>
-
     <nav>
         <a href="#about">About</a>
         <a href="#education">Education</a>
