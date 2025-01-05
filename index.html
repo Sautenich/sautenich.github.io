@@ -126,7 +126,7 @@
             <polygon points="100,60 102,60 90,90 110,90" fill="rgba(255, 255, 102, 0.5)" />
         </svg>
         <p class="genai-label">GenAI</p>
-    </div>
+        </div>
     </header>
 
     <style>
@@ -151,6 +151,7 @@
             font-size: 1.5em;
             color: #4caf50;
             font-weight: bold;
+            animation: fly-genai 6s linear infinite;
         }
     
         @keyframes fly-uav {
@@ -164,7 +165,20 @@
                 transform: translateX(-200px) translateY(-20px);
             }
         }
+    
+        @keyframes fly-genai {
+            0% {
+                transform: translate(-50%, -10px);
+            }
+            50% {
+                transform: translate(-50%, 20px);
+            }
+            100% {
+                transform: translate(-50%, -10px);
+            }
+        }
     </style>
+
     <nav>
         <a href="#about">About</a>
         <a href="#education">Education</a>
