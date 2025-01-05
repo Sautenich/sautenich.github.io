@@ -100,84 +100,54 @@
 </head>
 <body>
     <header>
+        <h1>Oleg Sautenkov</h1>
+        <p>GenAI Researcher | Robotics & AI Specialist | VLM/LLM Agents Innovator</p>
+        <img src="profile.jpg" alt="Oleg Sautenkov">
     <h1>Oleg Sautenkov</h1>
     <p>GenAI Researcher | Robotics & AI Specialist | Innovator</p>
     <img src="profile.jpg" alt="Oleg Sautenkov">
     <div class="uav-animation">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" class="flying-uav">
-            <!-- Quadcopter Body -->
-            <rect x="85" y="40" width="30" height="20" fill="#4caf50" rx="3" />
-            <circle cx="75" cy="30" r="5" fill="#81c784" />
-            <circle cx="125" cy="30" r="5" fill="#81c784" />
-            <circle cx="75" cy="70" r="5" fill="#81c784" />
-            <circle cx="125" cy="70" r="5" fill="#81c784" />
-            
-            <!-- Blades -->
-            <line x1="75" y1="30" x2="65" y2="20" stroke="#4caf50" stroke-width="2" />
-            <line x1="75" y1="30" x2="85" y2="20" stroke="#4caf50" stroke-width="2" />
-            <line x1="125" y1="30" x2="115" y2="20" stroke="#4caf50" stroke-width="2" />
-            <line x1="125" y1="30" x2="135" y2="20" stroke="#4caf50" stroke-width="2" />
-            <line x1="75" y1="70" x2="65" y2="80" stroke="#4caf50" stroke-width="2" />
-            <line x1="75" y1="70" x2="85" y2="80" stroke="#4caf50" stroke-width="2" />
-            <line x1="125" y1="70" x2="115" y2="80" stroke="#4caf50" stroke-width="2" />
-            <line x1="125" y1="70" x2="135" y2="80" stroke="#4caf50" stroke-width="2" />
-
-            <!-- Beam -->
-            <polygon points="100,60 102,60 90,90 110,90" fill="rgba(255, 255, 102, 0.5)" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 25" class="flying-uav">
+            <circle cx="10" cy="12.5" r="5" fill="#4caf50" />
+            <rect x="7" y="7" width="6" height="3" fill="#4caf50" />
+            <rect x="7" y="15" width="6" height="3" fill="#4caf50" />
+            <line x1="10" y1="12.5" x2="30" y2="12.5" stroke="#4caf50" stroke-width="2" />
         </svg>
-        <p class="genai-label">GenAI</p>
-        </div>
+    </div>
     </header>
 
     <style>
-        .uav-animation {
-            position: relative;
-            width: 200px;
-            margin: 0 auto;
+    .uav-animation {
+        margin-top: 1em;
+        position: relative;
+        width: 100%;
+        height: 50px;
+        overflow: hidden;
+    }
+    .flying-uav {
+        position: absolute;
+        top: 10px;
+        left: -50px;
+        animation: fly 5s linear infinite;
+        width: 50px;
+        height: 25px;
+    }
+    @keyframes fly {
+        0% {
+            left: -50px;
         }
+        50% {
+            left: 100%;
+        }
+        100% {
+            left: -50px;
+        }
+    }
+    </style>    
+
     
-        .flying-uav {
-            position: absolute;
-            width: 100px;
-            height: 50px;
-            animation: fly-uav 6s linear infinite;
-        }
     
-        .genai-label {
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5em;
-            color: #4caf50;
-            font-weight: bold;
-            animation: fly-genai 6s linear infinite;
-        }
-    
-        @keyframes fly-uav {
-            0% {
-                transform: translateX(-200px) translateY(-20px);
-            }
-            50% {
-                transform: translateX(200px) translateY(10px);
-            }
-            100% {
-                transform: translateX(-200px) translateY(-20px);
-            }
-        }
-    
-        @keyframes fly-genai {
-            0% {
-                transform: translate(-50%, -10px);
-            }
-            50% {
-                transform: translate(-50%, 20px);
-            }
-            100% {
-                transform: translate(-50%, -10px);
-            }
-        }
-    </style>
+
 
     <nav>
         <a href="#about">About</a>
