@@ -3,230 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oleg Sautenkov - GenAI</title>
+    <title>Oleg Sautenkov - AI Research & Robotics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #4caf50;
+            --secondary: #81c784;
+            --dark: #121212;
+            --dark-light: #1e1e1e;
+            --text: #e0e0e0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #121212;
-            color: #e0e0e0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark);
+            color: var(--text);
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         header {
             text-align: center;
-            padding: 2em 0;
-            border-bottom: 1px solid #4caf50;
-            background: #1e1e1e;
+            padding: 4em 0;
+            background: var(--dark-light);
+            border-bottom: 2px solid var(--primary);
             position: relative;
         }
 
-        header h1 {
-            font-size: 3em;
-            margin: 0;
-            color: #4caf50;
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        header p {
-            font-size: 1.2em;
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            object-fit: cover;
+        }
+
+        .profile-info {
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin: 0;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .title {
+            font-size: 1.4em;
+            color: var(--secondary);
             margin: 0.5em 0;
         }
 
-        header img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 3px solid #4caf50;
-            margin-top: 1em;
-            position: relative;
-            z-index: 1;
+        .highlight-box {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--dark-light);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            color: var(--primary);
+            font-weight: bold;
         }
 
         nav {
-            text-align: center;
-            margin: 1em 0;
+            background: var(--dark-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
         }
 
         nav a {
-            color: #4caf50;
+            color: var(--text);
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2em;
+            font-size: 1.1em;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            background: var(--primary);
+            color: var(--dark);
         }
 
         section {
-            max-width: 800px;
-            margin: 2em auto;
-            padding: 1em;
-            border: 1px solid #4caf50;
-            border-radius: 10px;
-            background: #1e1e1e;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 4rem auto;
+            max-width: 1000px;
+            padding: 2rem;
+            background: var(--dark-light);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
-            border-bottom: 1px solid #4caf50;
-            padding-bottom: 0.5em;
-            color: #4caf50;
+            color: var(--primary);
+            font-size: 2em;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .publication {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            background: rgba(76, 175, 80, 0.05);
         }
 
-        ul li {
-            margin: 0.5em 0;
+        .publication-title {
+            color: var(--secondary);
+            font-size: 1.2em;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-meta {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .links a {
+            color: var(--primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .links a:hover {
+            color: var(--secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category {
+            background: rgba(76, 175, 80, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--primary);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            font-size: 1.5em;
         }
 
         footer {
             text-align: center;
-            padding: 1em 0;
-            border-top: 1px solid #4caf50;
-            margin-top: 2em;
-            background: #1e1e1e;
+            padding: 2rem 0;
+            background: var(--dark-light);
+            border-top: 2px solid var(--primary);
+            margin-top: 4rem;
         }
 
-        a {
-            color: #4caf50;
-        }
-
-        a:hover {
-            color: #81c784;
-        }
-
-        .uav-animation {
-            position: absolute;
-            top: 108%;
-            left: 50%;
-            width: 300px;
-            height: 300px;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-        }
-
-        .flying-uav {
-            position: absolute;
-            width: 33px;
-            height: 33px;
-            animation: fly 10s linear infinite;
-        }
-
-        @keyframes fly {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg) translate(100px) rotate(0deg);
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
             }
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg) translate(100px) rotate(0deg);
+
+            .profile-info {
+                text-align: center;
+            }
+
+            nav .container {
+                flex-wrap: wrap;
             }
         }
     </style>
 </head>
 <body>
-
     <header>
-    <h1>Oleg Sautenkov</h1>
-    <p>GenAI Researcher | Robotics & AI Specialist | Innovator</p>
-    <img src="profile.jpg" alt="Oleg Sautenkov">
-    <div class="uav-animation">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="flying-uav">
-        <!-- Central body of the quadcopter -->
-        <rect x="90" y="90" width="60" height="60" fill="#4caf50" />
-
-        <!-- Propellers -->
-        <circle cx="60" cy="60" r="12" fill="#4caf50" />
-        <circle cx="180" cy="60" r="12" fill="#4caf50" />
-        <circle cx="60" cy="180" r="12" fill="#4caf50" />
-        <circle cx="180" cy="180" r="12" fill="#4caf50" />
-
-        <!-- Hollow Propellers -->
-        <circle cx="60" cy="60" r="30" fill="none" stroke="white" stroke-width="2" />
-        <circle cx="180" cy="60" r="30" fill="none" stroke="white" stroke-width="2" />
-        <circle cx="60" cy="180" r="30" fill="none" stroke="white" stroke-width="2" />
-        <circle cx="180" cy="180" r="30" fill="none" stroke="white" stroke-width="2" />
-
-        <!-- Connecting the propellers to the body -->
-        <line x1="90" y1="90" x2="60" y2="60" stroke="#4caf50" stroke-width="4" />
-        <line x1="150" y1="90" x2="180" y2="60" stroke="#4caf50" stroke-width="4" />
-        <line x1="90" y1="150" x2="60" y2="180" stroke="#4caf50" stroke-width="4" />
-        <line x1="150" y1="150" x2="180" y2="180" stroke="#4caf50" stroke-width="4" />
-
-        <!-- Text "GenAI" below -->
-        <text x="120" y="125" font-family="Arial" font-size="60" fill="white" text-anchor="middle" alignment-baseline="middle">AI</text>
-        </svg>
-    </div>
+        <div class="container">
+            <div class="profile-section">
+                <img src="profile.jpg" alt="Oleg Sautenkov" class="profile-image">
+                <div class="profile-info">
+                    <h1>Oleg Sautenkov</h1>
+                    <p class="title">AI Research Scientist | Robotics Specialist</p>
+                    <p>PhD Candidate at Skoltech | Invited Researcher at Hong Kong PolyU</p>
+                </div>
+            </div>
+            <div class="highlight-box">
+                <p>Specializing in LLM/VLM agents, UAV mission planning, and Computer Vision. Pioneering research in Vision-Language-Action systems for autonomous robotics.</p>
+            </div>
+        </div>
     </header>
 
     <nav>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-        <a href="https://docs.google.com/document/d/1KX7vcUAtg_vz7hnUFBZNGkydoXVsp7SsezkICUqEXSo/edit?usp=sharing" target="_blank">Full CV</a>
+        <div class="container">
+            <a href="#about">About</a>
+            <a href="#research">Research</a>
+            <a href="#experience">Experience</a>
+            <a href="#publications">Publications</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+            <a href="https://docs.google.com/document/d/1KX7vcUAtg_vz7hnUFBZNGkydoXVsp7SsezkICUqEXSo/edit?usp=sharing" target="_blank">Full CV</a>
+        </div>
     </nav>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a second-year PhD student in Robotics at Skoltech, specializing in LLM/VLM agents, UAV mission planning, and Computer Vision. My work integrates AI and robotics to solve complex challenges as TSP and path-planning through the new architectures. </br> Now I'm an Invited Researcher at <a href="https://www.polyu.edu.hk/aae/">AAE Hong Kong Poly</a>. DM to grab a coffee and discuss the robotics projects. </p>
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <ul>
-            <li><strong>Invited Researcher</strong>, Hong Kong PolyU, 2025–Present</li>
-            <li><strong>PhD in Information Systems</strong>, Skoltech, 2023–Present</li>
-            <li><strong>MSc in Engineering Systems</strong>, Skoltech, 2019–2022 </li>
-            <li><strong>BSc in Aviation Systems</strong>, Moscow Aviation Institute, 2015–2019</li>
-            <li><strong>Visiting Student</strong>, MIT CSAIL, 2022</li>
-        </ul>
-    </section>
-
-    <section id="experience">
-        <h2>Experience</h2>
-        <ul>
-            <li><strong>Invited Researcher</strong>, Hong Kong PolyU, 2025–Present</li>
-            <li><strong>Research Assistant</strong>, Skoltech, 2022–2023 </li>
-            <li><strong>Software Intern</strong>, Native Robotics, 2021 </li>
-            <li><strong>Mechanical Engineer</strong>, SmirnovDesign, 2019–2020 </li>
-        </ul>
-    </section>
-
-    <section id="genai_papers">
-        <h2>GenAI Related Papers</h2>
-        <p>Other papers can be found in my Full CV</p>
-        <ul>
-          <li>
-            <strong>UAV-VLA: Vision-Language-Action System for Large Scale Aerial Mission Generation.</strong><br/>
-            O. Sautenkov, Y. Yaqoot, A. Lykov, M. A. Mustafa, G. Tadevosyan, 
-            A. Akhmetkazy, M. Altamirano Cabrera, M. Martynov, S. Karaf, and D. Tsetserukou, 
-            in <em>Proc. ACM/IEEE Int. Conf. on Human Robot Interaction (HRI 2025)</em>, 
-            Melbourne, Australia, March 4–6, 2025, in print. 
-            <br/>
-            (Core2023 A, Scopus, WoS, H-index (SJR)=70)<br/>
-            <a href="https://arxiv.org/abs/2501.05014">https://arxiv.org/abs/2501.05014</a><br/>
-            <a href="https://github.com/sautenich/uav-vla">https://github.com/sautenich/uav-vla</a><br/>
-
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a second-year PhD student in Robotics at Skoltech, focusing on the intersection of Large Language Models (LLMs), Vision-Language Models (VLMs), and robotics. My research centers on developing intelligent autonomous systems that can understand and execute complex missions through natural language interaction.</p>
             
-          </li>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <p>Research Publications</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <p>Best Paper Awards</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <p>Years in Robotics</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="research">
+            <h2>Research Focus</h2>
+            <div class="publication">
+                <h3>Current Research Projects</h3>
+                <ul>
+                    <li><strong>UAV-VLA:</strong> Vision-Language-Action System for Large Scale Aerial Mission Generation</li>
+                    <li><strong>UAV-VLPA*:</strong> Vision-Language-Path-Action System for Optimal Route Generation</li>
+                    <li><strong>CognitiveDrone:</strong> VLA Model for Real-Time Cognitive Task Solving in UAVs</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="highlight-box">
+                <h3>Current Positions</h3>
+                <p><strong>Invited Researcher</strong> - Hong Kong PolyU (2025-Present)</p>
+                <p><strong>PhD Candidate</strong> - Skoltech (2023-Present)</p>
+            </div>
             
-        </ul>
-      </section>
+            <div class="publication">
+                <h3>Previous Positions</h3>
+                <ul>
+                    <li><strong>Research Assistant</strong> - Skoltech (2022-2023)</li>
+                    <li><strong>Software Intern</strong> - Native Robotics (2021)</li>
+                    <li><strong>Mechanical Engineer</strong> - SmirnovDesign (2019-2020)</li>
+                </ul>
+            </div>
+        </section>
 
+        <section id="publications">
+            <h2>Key Publications</h2>
+            <div class="publication">
+                <div class="publication-title">UAV-VLA: Vision-Language-Action System for Large Scale Aerial Mission Generation</div>
+                <div class="publication-meta">IEEE/ACM Int. Conf. on Human Robot Interaction (HRI 2025)</div>
+                <p>Core2023 A, Scopus, WoS, H-index (SJR)=70</p>
+                <div class="links">
+                    <a href="https://arxiv.org/abs/2501.05014" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                    <a href="https://github.com/sautenich/uav-vla" target="_blank"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:oleg.sautenkov@skoltech.ru">oleg.sautenkov[at]skoltech.ru</a></p>
-        <p>GitHub: <a href="https://github.com/Sautenich" target="_blank">github.com/Sautenich</a></p>
-        <p>Google Scholar: <a href="https://scholar.google.com/citations?hl=ru&user=phIRlIkAAAAJ" target="_blank">scholar.google.com/OlegSautenkov</a></p>
-    </section>
+            <div class="publication">
+                <div class="publication-title">UAV-VLPA*: A Vision-Language-Path-Action System for Optimal Route Generation</div>
+                <div class="publication-meta">IEEE Intelligent Vehicles Symposium (IV 2025)</div>
+                <div class="links">
+                    <a href="https://arxiv.org/abs/2503.02454" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>AI & ML</h3>
+                    <ul>
+                        <li>Large Language Models (LLMs)</li>
+                        <li>Vision-Language Models (VLMs)</li>
+                        <li>PyTorch</li>
+                        <li>Computer Vision (OpenCV + DNN)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Robotics</h3>
+                    <ul>
+                        <li>ROS/ROS2</li>
+                        <li>Ardupilot/MAVLink</li>
+                        <li>Robot Motion Planning</li>
+                        <li>Simulation (AirSim)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <ul>
+                        <li>Python (Advanced)</li>
+                        <li>C++/C#</li>
+                        <li>MATLAB/Simulink</li>
+                        <li>Linux/Git</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:oleg.sautenkov@skoltech.ru">oleg.sautenkov@skoltech.ru</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/Sautenich" target="_blank">github.com/Sautenich</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <a href="https://scholar.google.com/citations?hl=ru&user=phIRlIkAAAAJ" target="_blank">Google Scholar</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-telegram"></i>
+                    <a href="https://t.me/Sauten" target="_blank">@Sauten</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Hong Kong</span>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2025 Oleg Sautenkov | OS CV</p>
+        <div class="container">
+            <p>&copy; 2025 Oleg Sautenkov | AI Research Scientist</p>
+        </div>
     </footer>
 </body>
 </html>
