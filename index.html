@@ -1,232 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oleg Sautenkov - GenAI</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #121212;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        header {
-            text-align: center;
-            padding: 2em 0;
-            border-bottom: 1px solid #4caf50;
-            background: #1e1e1e;
-            position: relative;
-        }
-
-        header h1 {
-            font-size: 3em;
-            margin: 0;
-            color: #4caf50;
-        }
-
-        header p {
-            font-size: 1.2em;
-            margin: 0.5em 0;
-        }
-
-        header img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 3px solid #4caf50;
-            margin-top: 1em;
-            position: relative;
-            z-index: 1;
-        }
-
-        nav {
-            text-align: center;
-            margin: 1em 0;
-        }
-
-        nav a {
-            color: #4caf50;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2em;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        section {
-            max-width: 800px;
-            margin: 2em auto;
-            padding: 1em;
-            border: 1px solid #4caf50;
-            border-radius: 10px;
-            background: #1e1e1e;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        h2 {
-            border-bottom: 1px solid #4caf50;
-            padding-bottom: 0.5em;
-            color: #4caf50;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        ul li {
-            margin: 0.5em 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1em 0;
-            border-top: 1px solid #4caf50;
-            margin-top: 2em;
-            background: #1e1e1e;
-        }
-
-        a {
-            color: #4caf50;
-        }
-
-        a:hover {
-            color: #81c784;
-        }
-
-        .uav-animation {
-            position: absolute;
-            top: 108%;
-            left: 50%;
-            width: 300px;
-            height: 300px;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-        }
-
-        .flying-uav {
-            position: absolute;
-            width: 33px;
-            height: 33px;
-            animation: fly 10s linear infinite;
-        }
-
-        @keyframes fly {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg) translate(100px) rotate(0deg);
-            }
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg) translate(100px) rotate(0deg);
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oleg Sautenkov | Robotics & AI Researcher</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-    <header>
+  <header>
     <h1>Oleg Sautenkov</h1>
-    <p>GenAI Researcher | Robotics & AI Specialist | Innovator</p>
-    <img src="profile.jpg" alt="Oleg Sautenkov">
-    <div class="uav-animation">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="flying-uav">
-        <!-- Central body of the quadcopter -->
-        <rect x="90" y="90" width="60" height="60" fill="#4caf50" />
-
-        <!-- Propellers -->
-        <circle cx="60" cy="60" r="12" fill="#4caf50" />
-        <circle cx="180" cy="60" r="12" fill="#4caf50" />
-        <circle cx="60" cy="180" r="12" fill="#4caf50" />
-        <circle cx="180" cy="180" r="12" fill="#4caf50" />
-
-        <!-- Hollow Propellers -->
-        <circle cx="60" cy="60" r="30" fill="none" stroke="white" stroke-width="2" />
-        <circle cx="180" cy="60" r="30" fill="none" stroke="white" stroke-width="2" />
-        <circle cx="60" cy="180" r="30" fill="none" stroke="white" stroke-width="2" />
-        <circle cx="180" cy="180" r="30" fill="none" stroke="white" stroke-width="2" />
-
-        <!-- Connecting the propellers to the body -->
-        <line x1="90" y1="90" x2="60" y2="60" stroke="#4caf50" stroke-width="4" />
-        <line x1="150" y1="90" x2="180" y2="60" stroke="#4caf50" stroke-width="4" />
-        <line x1="90" y1="150" x2="60" y2="180" stroke="#4caf50" stroke-width="4" />
-        <line x1="150" y1="150" x2="180" y2="180" stroke="#4caf50" stroke-width="4" />
-
-        <!-- Text "GenAI" below -->
-        <text x="120" y="125" font-family="Arial" font-size="60" fill="white" text-anchor="middle" alignment-baseline="middle">AI</text>
-        </svg>
-    </div>
-    </header>
-
+    <p>PhD Student at Skoltech | Robotics & AI Specialist</p>
     <nav>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-        <a href="https://docs.google.com/document/d/1KX7vcUAtg_vz7hnUFBZNGkydoXVsp7SsezkICUqEXSo/edit?usp=sharing" target="_blank">Full CV</a>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#scholarships">Scholarships</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
+  </header>
 
+  <main>
     <section id="about">
-        <h2>About Me</h2>
-        <p>I am a second-year PhD student in Robotics at Skoltech, specializing in LLM/VLM agents, UAV mission planning, and Computer Vision. My work integrates AI and robotics to solve complex challenges as TSP and path-planning through the new architectures. </br> Now I'm an Invited Researcher at <a href="https://www.polyu.edu.hk/aae/">AAE Hong Kong Poly</a>. DM to grab a coffee and discuss the robotics projects. </p>
+      <h2>About Me</h2>
+      <p>I am a second-year PhD student in Robotics at Skoltech, specializing in LLM/VLM agents, UAV mission planning, and Computer Vision. My work integrates AI and robotics to solve complex challenges such as TSP and path-planning through new architectures.</p>
+      <p>Currently, I am an Invited Researcher at AAE Hong Kong Polytechnic University.</p>
     </section>
 
     <section id="education">
-        <h2>Education</h2>
-        <ul>
-            <li><strong>Invited Researcher</strong>, Hong Kong PolyU, 2025–Present</li>
-            <li><strong>PhD in Information Systems</strong>, Skoltech, 2023–Present</li>
-            <li><strong>MSc in Engineering Systems</strong>, Skoltech, 2019–2022 </li>
-            <li><strong>BSc in Aviation Systems</strong>, Moscow Aviation Institute, 2015–2019</li>
-            <li><strong>Visiting Student</strong>, MIT CSAIL, 2022</li>
-        </ul>
+      <h2>Education</h2>
+      <ul>
+        <li><strong>Jan 2025 – Present:</strong> Invited Researcher, AAE, The Hong Kong Polytechnic University, Hong Kong SAR</li>
+        <li><strong>Sep 2023 – Present:</strong> PhD in Engineering Systems, Skolkovo Institute of Science and Technology, Moscow, Russia</li>
+        <li><strong>Sep 2019 – Aug 2022:</strong> MSc in Engineering Systems, Skolkovo Institute of Science and Technology, GPA 4.8/5, Moscow, Russia</li>
+        <li><strong>Feb 2022 – Jun 2022:</strong> Visiting Student, CSAIL, Massachusetts Institute of Technology, Cambridge, USA</li>
+        <li><strong>Sep 2015 – Jul 2019:</strong> BSc in Aviation Systems and Construction, Moscow Aviation Institute, GPA 4.8/5, Moscow, Russia</li>
+      </ul>
     </section>
 
     <section id="experience">
-        <h2>Experience</h2>
-        <ul>
-            <li><strong>Invited Researcher</strong>, Hong Kong PolyU, 2025–Present</li>
-            <li><strong>Research Assistant</strong>, Skoltech, 2022–2023 </li>
-            <li><strong>Software Intern</strong>, Native Robotics, 2021 </li>
-            <li><strong>Mechanical Engineer</strong>, SmirnovDesign, 2019–2020 </li>
-        </ul>
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>Aug 2022 – Aug 2023:</strong> Research Assistant, Skolkovo Institute of Science and Technology, Skolkovo, Russia</li>
+        <li><strong>Jun 2021 – Aug 2021:</strong> Software Intern, Native Robotics, Skolkovo, Russia</li>
+        <li><strong>Oct 2019 – Oct 2020:</strong> Mechanical Engineer, SmirnovDesign, Moscow, Russia</li>
+      </ul>
     </section>
 
-    <section id="genai_papers">
-        <h2>GenAI Related Papers</h2>
-        <p>Other papers can be found in my Full CV</p>
-        <ul>
-          <li>
-            <strong>UAV-VLA: Vision-Language-Action System for Large Scale Aerial Mission Generation.</strong><br/>
-            O. Sautenkov, Y. Yaqoot, A. Lykov, M. A. Mustafa, G. Tadevosyan, 
-            A. Akhmetkazy, M. Altamirano Cabrera, M. Martynov, S. Karaf, and D. Tsetserukou, 
-            in <em>Proc. ACM/IEEE Int. Conf. on Human Robot Interaction (HRI 2025)</em>, 
-            Melbourne, Australia, March 4–6, 2025, in print. 
-            <br/>
-            (Core2023 A, Scopus, WoS, H-index (SJR)=70)<br/>
-            <a href="https://arxiv.org/abs/2501.05014">https://arxiv.org/abs/2501.05014</a><br/>
-            <a href="https://github.com/sautenich/uav-vla">https://github.com/sautenich/uav-vla</a><br/>
+    <section id="publications">
+      <h2>Scientific Publications</h2>
+      <ul>
+        <li><strong>UAV-VLA: Vision-Language-Action System for Large Scale Aerial Mission Generation</strong><br/>
+        O. Sautenkov et al., Proc. IEEE/ACM Int. Conf. on Human Robot Interaction (HRI 2025), Melbourne, Australia, March 4-6, 2025, pp. 1588-1592. <br/>
+        DOI: <a href="https://doi.org/10.5555/3721488.3721725">10.5555/3721488.3721725</a> | Arxiv: <a href="https://arxiv.org/abs/2501.05014">arxiv.org/abs/2501.05014</a> | GitHub: <a href="https://github.com/sautenich/uav-vla">github.com/sautenich/uav-vla</a></li>
+        <!-- Additional publications can be listed similarly -->
+      </ul>
+    </section>
 
-            
-          </li>
-            
-        </ul>
-      </section>
+    <section id="achievements">
+      <h2>Achievements</h2>
+      <ul>
+        <li>1st place, Nvidia Hackathon 2020, Skoltech, Moscow, Russia</li>
+        <li>3rd place, AstraZeneca Hackathon 2020, Skoltech, Moscow, Russia</li>
+        <li>Exceptional Contribution to Industrial Immersion Program 2024, Moscow, Russia</li>
+        <li>Best Project at AIRI Summer School on AI 2024, Moscow, Russia</li>
+      </ul>
+    </section>
 
+    <section id="scholarships">
+      <h2>Scholarships</h2>
+      <ul>
+        <li>Russian Presidential Scholarship for Studying Abroad - $12,000</li>
+        <li>Grant for Academic Mobility in PolyU Hong Kong - $60,000 HKD</li>
+        <li>Grant for Academic Mobility in MIT - $17,500</li>
+        <li>Skoltech Scholarship for Excellent Study - $15,000</li>
+        <li>Skoltech Scholarship for Development, Top Paper Award - $500 (2023)</li>
+        <li>Skoltech Scholarship for Development, Top Paper Award - $500 (2022)</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <h3>Programming</h3>
+      <ul>
+        <li>Python (Multiprocessing, Multithreading, Numpy)</li>
+        <li>Data Science (Pandas, Scikit-learn)</li>
+        <li>Robot Operating System (ROS)</li>
+        <li>MATLAB/Simulink</li>
+        <li>Ardupilot/MAVLink</li>
+        <li>Linux</li>
+        <li>C#/Unity</li>
+        <li>OpenCV + DNN</li>
+        <li>AirSim Simulation</li>
+        <li>ESP/STM32, Raspberry Pi, Jetson Series</li>
+        <li>PyTorch</li>
+        <li>Depth Cameras (Kinect, Realsense)</li>
+      </ul>
+      <h3>Engineering</h3>
+      <ul>
+        <li>CATIA V5/V6</li>
+        <li>NX Unigraphics</li>
+        <li>SolidWorks</li>
+        <li>SolidWorks Simulation</li>
+        <li>3D-printing</li>
+        <li>Quick Prototyping</li>
+        <li>Soldering</li>
+        <li>Machining</li>
+        <li>Plastic Molding</li>
+        <li>FPV Flight Experience</li>
+      </ul>
+    </section>
+
+    <section id="courses">
+      <h2>Courses</h2>
+      <ul>
+        <li>Fine-tuning Large Language Models, Jan 2025</li>
+        <li>Conscious OOP in Python, Dec 2024</li>
+        <li>Langchain Chat with your Data, Jan 2025</li>
+        <li>ROS 2, Ongoing</li>
+      </ul>
+    </section>
 
     <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:oleg.sautenkov@skoltech.ru">oleg.sautenkov[at]skoltech.ru</a></p>
-        <p>GitHub: <a href="https://github.com/Sautenich" target="_blank">github.com/Sautenich</a></p>
-        <p>Google Scholar: <a href="https://scholar.google.com/citations?hl=ru&user=phIRlIkAAAAJ" target="_blank">scholar.google.com/OlegSautenkov</a></p>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:oleg.sautenkov@skoltech.ru">oleg.sautenkov@skoltech.ru</a></p>
+      <p>Phone: +7-985-077-76-11</p>
+      <p>GitHub: <a href="https://github.com/Sautenich">github.com/Sautenich</a></p>
+      <p>Google Scholar: <a href="https://scholar.google.com/citations?hl=ru&user=phIRlIkAAAAJ">scholar.google.com/OlegSautenkov</a></p>
+      <p>Telegram: @Sauten</p>
+      <p>Location: Hong Kong</p>
     </section>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Oleg Sautenkov | OS CV</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Oleg Sautenkov</p>
+  </footer>
 </body>
 </html>
