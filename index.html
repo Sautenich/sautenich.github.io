@@ -449,6 +449,32 @@
             margin: 0.5rem 0;
         }
 
+        .youtube-link {
+            color: var(--text) !important;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ff0000;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .youtube-link:hover {
+            background: #ff0000;
+            color: white !important;
+        }
+
+        .youtube-link i {
+            color: #ff0000;
+        }
+
+        .youtube-link:hover i {
+            color: white;
+        }
+
         @media (max-width: 768px) {
             .video-grid {
                 grid-template-columns: 1fr;
@@ -476,9 +502,8 @@
     <nav>
         <div class="container">
             <a href="#about">About</a>
-            <a href="#research">Research</a>
+            <a href="research.html">Research</a>
             <a href="#experience">Experience</a>
-            <a href="#publications">Publications</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
             <a href="https://docs.google.com/document/d/1KX7vcUAtg_vz7hnUFBZNGkydoXVsp7SsezkICUqEXSo/edit?usp=sharing" target="_blank">Full CV</a>
@@ -501,96 +526,6 @@
             </div>
         </section>
 
-        <section id="research">
-            <h2>Research Focus</h2>
-            <div class="research-grid">
-                <div class="research-card">
-                    <h3>UAV-VLA</h3>
-                    <p>Official repository for UAV-VLA HRI 2025 paper. Vision-Language-Action System for Large Scale Aerial Mission Generation.</p>
-                    <div class="research-meta">
-                        <div class="tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">LLM</span>
-                            <span class="tag">VLM</span>
-                        </div>
-                    </div>
-                    <div class="repo-stats">
-                        <span><i class="fas fa-star"></i> 53</span>
-                        <span><i class="fas fa-code-fork"></i> 5</span>
-                    </div>
-                    <div class="research-links">
-                        <a href="https://github.com/sautenich/uav-vla" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        <a href="https://arxiv.org/abs/2501.05014" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
-                    </div>
-                </div>
-
-                <div class="research-card">
-                    <h3>UAV-CodeAgents</h3>
-                    <p>Scalable UAV Mission Planning via Multi-Agent ReAct and Vision-Language Reasoning.</p>
-                    <div class="research-meta">
-                        <div class="tags">
-                            <span class="tag">Multi-Agent</span>
-                            <span class="tag">ReAct</span>
-                        </div>
-                    </div>
-                    <div class="research-links">
-                        <a href="https://github.com/sautenich/UAV-CodeAgents" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        <a href="https://arxiv.org/abs/2505.07236" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
-                    </div>
-                </div>
-
-                <div class="research-card">
-                    <h3>UAV-VLPA*</h3>
-                    <p>Vision-Language-Path-Action System for Optimal Route Generation on Large Scales.</p>
-                    <div class="research-meta">
-                        <div class="tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Path Planning</span>
-                        </div>
-                    </div>
-                    <div class="research-links">
-                        <a href="https://github.com/sautenich/UAV-VLPA" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        <a href="https://arxiv.org/abs/2503.02454" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
-                    </div>
-                </div>
-
-                <div class="research-card">
-                    <h3>FlightAR</h3>
-                    <p>AR Flight Assistant with Multiple Video Streams and Object Detection for Immersive Drone Control.</p>
-                    <div class="research-meta">
-                        <div class="tags">
-                            <span class="tag">AR</span>
-                            <span class="tag">Computer Vision</span>
-                        </div>
-                    </div>
-                    <div class="repo-stats">
-                        <span><i class="fas fa-star"></i> 3</span>
-                    </div>
-                    <div class="research-links">
-                        <a href="https://github.com/sautenich/FlightAR" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        <a href="https://arxiv.org/abs/2410.16943" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
-                    </div>
-                </div>
-
-                <div class="research-card">
-                    <h3>CognitiveDrone</h3>
-                    <p>VLA Model and Evaluation Benchmark for Real-Time Cognitive Task Solving and Reasoning in UAVs.</p>
-                    <div class="research-meta">
-                        <div class="tags">
-                            <span class="tag">VLA</span>
-                            <span class="tag">Cognitive AI</span>
-                        </div>
-                    </div>
-                    <div class="research-links">
-                        <a href="https://arxiv.org/abs/2503.01378" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
-                    </div>
-                </div>
-            </div>
-            <div class="research-footer">
-                <p>For more research work and publications, visit my <a href="https://github.com/Sautenich" target="_blank">GitHub profile</a> and <a href="https://scholar.google.com/citations?hl=ru&user=phIRlIkAAAAJ" target="_blank">Google Scholar</a>.</p>
-            </div>
-        </section>
-
         <section id="experience">
             <h2>Experience</h2>
             <div class="highlight-box">
@@ -606,36 +541,6 @@
                     <li><strong>Software Intern</strong> - Native Robotics (2021)</li>
                     <li><strong>Mechanical Engineer</strong> - SmirnovDesign (2019-2020)</li>
                 </ul>
-            </div>
-        </section>
-
-        <section id="publications">
-            <h2>Key Publications</h2>
-            <div class="publication">
-                <div class="publication-title">UAV-VLA: Vision-Language-Action System for Large Scale Aerial Mission Generation</div>
-                <div class="publication-meta">IEEE/ACM Int. Conf. on Human Robot Interaction (HRI 2025)</div>
-                <p>Core2023 A, Scopus, WoS, H-index (SJR)=70</p>
-                <div class="links">
-                    <a href="https://arxiv.org/abs/2501.05014" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
-                    <a href="https://github.com/sautenich/uav-vla" target="_blank"><i class="fab fa-github"></i> Code</a>
-                </div>
-            </div>
-
-            <div class="publication">
-                <div class="publication-title">UAV-VLPA*: A Vision-Language-Path-Action System for Optimal Route Generation</div>
-                <div class="publication-meta">IEEE Intelligent Vehicles Symposium (IV 2025)</div>
-                <div class="links">
-                    <a href="https://arxiv.org/abs/2503.02454" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
-                </div>
-            </div>
-
-            <div class="publication">
-                <div class="publication-title">UAV-CodeAgents: Scalable UAV Mission Planning via Multi-Agent ReAct and Vision-Language Reasoning</div>
-                <div class="publication-meta">IEEE Int. Conf. Systems, Man, and Cybernetics (SMC 2025)</div>
-                <p>Scopus and WoS, H-index (SJR)=66</p>
-                <div class="links">
-                    <a href="https://arxiv.org/abs/2505.07236" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
-                </div>
             </div>
         </section>
 
@@ -701,40 +606,84 @@
             <div class="video-grid">
                 <div class="video-card">
                     <div class="video-container">
-                        <video controls preload="none" poster="thumbnail-uav-vla.jpg">
-                            <source src="uav-vla.mp4" type="video/mp4">
+                        <video controls preload="none">
+                            <source src="vla.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="video-info">
                         <h3>UAV-VLA Demo</h3>
-                        <p>Vision-Language-Action System demonstration showing autonomous UAV mission execution based on natural language commands.</p>
+                        <p>Vision-Language-Action System for Large Scale Aerial Mission Generation in action.</p>
                     </div>
                 </div>
 
                 <div class="video-card">
                     <div class="video-container">
-                        <video controls preload="none" poster="thumbnail-agents.jpg">
-                            <source src="Uav-Agents22.mp4" type="video/mp4">
+                        <video controls preload="none">
+                            <source src="codeagents.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="video-info">
-                        <h3>Multi-Agent UAV System</h3>
-                        <p>Demonstration of multi-agent UAV coordination and mission planning using advanced AI frameworks.</p>
+                        <h3>UAV-CodeAgents</h3>
+                        <p>Multi-Agent ReAct and Vision-Language Reasoning for scalable UAV mission planning.</p>
                     </div>
                 </div>
 
                 <div class="video-card">
                     <div class="video-container">
-                        <video controls preload="none" poster="thumbnail-vlpa.jpg">
-                            <source src="uav-vlpa_video(1).mp4" type="video/mp4">
+                        <video controls preload="none">
+                            <source src="vlpa.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="video-info">
                         <h3>UAV-VLPA* Path Planning</h3>
                         <p>Visualization of optimal route generation and execution using the Vision-Language-Path-Action system.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls preload="none">
+                            <source src="vlrr.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>UAV-VLRR</h3>
+                        <p>Vision-Language Informed NMPC for Rapid Response in UAV Search and Rescue operations.</p>
+                        <div class="card-links">
+                            <a href="https://www.youtube.com/watch?v=KJqQGKKt1xY" target="_blank" class="youtube-link">
+                                <i class="fab fa-youtube"></i> Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls preload="none">
+                            <source src="racevla.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>RaceVLA</h3>
+                        <p>VLA-based Racing Drone Navigation demonstrating human-like behavior in dynamic environments.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls preload="none">
+                            <source src="cogdrone.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>CognitiveDrone</h3>
+                        <p>Real-Time Cognitive Task Solving and Reasoning demonstration for autonomous UAVs.</p>
                     </div>
                 </div>
             </div>
