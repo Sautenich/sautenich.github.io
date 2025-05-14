@@ -305,6 +305,11 @@
             border-radius: 2px;
             cursor: pointer;
             position: relative;
+            transition: height 0.2s ease;
+        }
+
+        .time-bar-container:hover {
+            height: 6px;
         }
 
         .time-bar {
@@ -313,24 +318,6 @@
             border-radius: 2px;
             width: 0%;
             transition: width 0.1s linear;
-        }
-
-        .time-bar::after {
-            content: '';
-            position: absolute;
-            right: -6px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 12px;
-            height: 12px;
-            background: var(--primary);
-            border-radius: 50%;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .time-bar-container:hover .time-bar::after {
-            opacity: 1;
         }
 
         .video-button {
