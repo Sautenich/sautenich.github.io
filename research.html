@@ -586,21 +586,25 @@
                 <h2 class="card-title">RaceVLA</h2>
                 <p class="card-description">VLA-based Racing Drone Navigation with Human-like Behavior, pushing the limits of autonomous racing capabilities.</p>
                 <div class="video-preview">
-                    <iframe 
-                        src="https://www.youtube.com/embed/7SfSzeMGrBE" 
-                        title="RaceVLA Demo"
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000;">
-                    </iframe>
+                    <video preload="none" poster="racevla.mp4">
+                        <source src="racevla.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-controls">
+                        <button class="video-button play-pause">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="time-bar-container">
+                            <div class="time-bar"></div>
+                        </div>
+                        <div class="time-display">0:00 / 0:00</div>
+                        <button class="video-button fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="card-links">
                     <a href="https://github.com/SerValera/RaceVLA" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://arxiv.org/abs/2503.02572" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
-                    <a href="https://www.youtube.com/watch?v=7SfSzeMGrBE" target="_blank" class="youtube-link">
-                        <i class="fab fa-youtube"></i> Watch on YouTube
-                    </a>
                 </div>
             </div>
 
