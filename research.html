@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research - Oleg Sautenkov</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4caf50;
+            --primary: #00DC82;
+            --primary-dark: #00B76C;
+            --primary-light: #33E39B;
             --secondary: #81c784;
-            --dark: #121212;
-            --dark-light: #1e1e1e;
-            --text: #e0e0e0;
+            --dark: #0A0A0A;
+            --dark-light: #141414;
+            --text: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.7);
         }
 
         body {
@@ -21,6 +25,12 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            background: linear-gradient(135deg, var(--dark) 0%, #111111 100%);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
         }
 
         .container {
@@ -30,24 +40,41 @@
         }
 
         header {
-            background: var(--dark-light);
-            padding: 2rem 0;
-            border-bottom: 2px solid var(--primary);
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(0, 220, 130, 0.2);
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(0, 220, 130, 0.1), transparent 70%);
+            pointer-events: none;
         }
 
         h1 {
             color: var(--primary);
             margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         nav {
-            background: var(--dark-light);
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid var(--primary);
+            border-bottom: 1px solid rgba(0, 220, 130, 0.1);
         }
 
         nav .container {
@@ -59,14 +86,32 @@
         nav a {
             color: var(--text);
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::before {
+            width: 80%;
         }
 
         nav a:hover {
-            background: var(--primary);
-            color: var(--dark);
+            color: var(--primary);
+            background: rgba(0, 220, 130, 0.1);
         }
 
         .research-grid {
@@ -77,40 +122,63 @@
         }
 
         .research-card {
-            background: var(--dark-light);
-            border: 1px solid var(--primary);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: transform 0.3s ease;
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 220, 130, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 220, 130, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
         .research-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .research-card:hover::before {
+            opacity: 1;
         }
 
         .new-badge {
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: var(--dark);
-            padding: 0.3rem 0.8rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(0, 220, 130, 0.2);
         }
 
         .card-title {
             color: var(--primary);
-            font-size: 1.4em;
+            font-size: 1.6em;
             margin: 0 0 1rem 0;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .card-description {
             margin-bottom: 1.5rem;
-            color: var(--text);
+            color: var(--text-secondary);
+            font-size: 1.1em;
+            line-height: 1.6;
         }
 
         .card-links {
@@ -125,15 +193,18 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--primary);
-            border-radius: 4px;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid rgba(0, 220, 130, 0.2);
+            border-radius: 8px;
             transition: all 0.3s ease;
+            font-weight: 500;
+            background: rgba(0, 220, 130, 0.05);
         }
 
         .card-links a:hover {
             background: var(--primary);
             color: var(--dark);
+            border-color: var(--primary);
         }
 
         @media (max-width: 768px) {
@@ -143,10 +214,21 @@
 
             .research-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             nav .container {
                 flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .card-links {
+                flex-direction: column;
+            }
+
+            .card-links a {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
