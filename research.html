@@ -232,39 +232,17 @@
             }
         }
 
-        .video-section {
-            margin: 4rem 0;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .video-card {
-            background: rgba(20, 20, 20, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 220, 130, 0.1);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .video-container {
+        .video-preview {
+            margin: 1rem -2rem;
             position: relative;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            width: 100%;
+            padding-top: 56.25%;
             background: #000;
+            overflow: hidden;
+            border-top: 1px solid rgba(0, 220, 130, 0.1);
+            border-bottom: 1px solid rgba(0, 220, 130, 0.1);
         }
 
-        .video-container video {
+        .video-preview video {
             position: absolute;
             top: 0;
             left: 0;
@@ -273,21 +251,48 @@
             object-fit: cover;
         }
 
-        .video-info {
-            padding: 1.5rem;
+        .video-preview::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, 
+                rgba(0,0,0,0) 0%,
+                rgba(10,10,10,0.2) 80%,
+                rgba(10,10,10,0.8) 100%);
+            pointer-events: none;
         }
 
-        .video-info h3 {
-            color: var(--primary);
-            margin-top: 0;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.4em;
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 220, 130, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        .video-info p {
-            font-size: 1em;
-            margin: 0.5rem 0;
-            color: var(--text-secondary);
+        .play-button:hover {
+            background: var(--primary);
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 220, 130, 0.4);
+        }
+
+        .play-button i {
+            color: var(--dark);
+            font-size: 24px;
+            margin-left: 4px;
         }
 
         .youtube-link {
@@ -316,13 +321,6 @@
         .youtube-link:hover i {
             color: white;
         }
-
-        @media (max-width: 768px) {
-            .video-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -346,6 +344,14 @@
             <div class="research-card">
                 <h2 class="card-title">UAV-VLA</h2>
                 <p class="card-description">Vision-Language-Action System for Large Scale Aerial Mission Generation. A groundbreaking approach to UAV mission planning using natural language commands.</p>
+                <div class="video-preview">
+                    <video preload="none" poster="vla.mp4">
+                        <source src="vla.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
                 <div class="card-links">
                     <a href="https://github.com/sautenich/uav-vla" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://arxiv.org/abs/2501.05014" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
@@ -355,6 +361,14 @@
             <div class="research-card">
                 <h2 class="card-title">UAV-VLPA</h2>
                 <p class="card-description">Vision-Language-Path-Action System for optimal route generation, combining visual understanding with efficient path planning.</p>
+                <div class="video-preview">
+                    <video preload="none" poster="vlpa.mp4">
+                        <source src="vlpa.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
                 <div class="card-links">
                     <a href="https://github.com/Sautenich/UAV-VLPA" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://arxiv.org/abs/2503.02454" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
@@ -365,6 +379,14 @@
                 <div class="new-badge">New</div>
                 <h2 class="card-title">UAV-CodeAgents</h2>
                 <p class="card-description">Scalable UAV Mission Planning via Multi-Agent ReAct and Vision-Language Reasoning, pushing the boundaries of autonomous coordination.</p>
+                <div class="video-preview">
+                    <video preload="none" poster="codeagents.mp4">
+                        <source src="codeagents.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
                 <div class="card-links">
                     <a href="https://github.com/Sautenich/UAV-CodeAgents" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://arxiv.org/abs/2505.07236" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
@@ -374,14 +396,33 @@
             <div class="research-card">
                 <h2 class="card-title">UAV-VLRR</h2>
                 <p class="card-description">Vision-Language Informed NMPC for Rapid Response in UAV Search and Rescue operations.</p>
+                <div class="video-preview">
+                    <video preload="none" poster="vlrr.mp4">
+                        <source src="vlrr.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
                 <div class="card-links">
                     <a href="https://arxiv.org/abs/2503.02465" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                    <a href="https://www.youtube.com/watch?v=KJqQGKKt1xY" target="_blank" class="youtube-link">
+                        <i class="fab fa-youtube"></i> Watch on YouTube
+                    </a>
                 </div>
             </div>
 
             <div class="research-card">
                 <h2 class="card-title">RaceVLA</h2>
                 <p class="card-description">VLA-based Racing Drone Navigation with Human-like Behavior, pushing the limits of autonomous racing capabilities.</p>
+                <div class="video-preview">
+                    <video preload="none" poster="racevla.mp4">
+                        <source src="racevla.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
                 <div class="card-links">
                     <a href="https://github.com/SerValera/RaceVLA" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://arxiv.org/abs/2503.02572" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
@@ -391,98 +432,49 @@
             <div class="research-card">
                 <h2 class="card-title">CognitiveDrone</h2>
                 <p class="card-description">VLA Model and Evaluation Benchmark for Real-Time Cognitive Task Solving and Reasoning in UAVs.</p>
+                <div class="video-preview">
+                    <video preload="none" poster="cogdrone.mp4">
+                        <source src="cogdrone.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
                 <div class="card-links">
                     <a href="https://github.com/SerValera/docker_CognitiveDrone_DataCollector" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://arxiv.org/html/2503.01378v1" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
                 </div>
             </div>
         </div>
-
-        <section class="video-section">
-            <h2>Research Demonstrations</h2>
-            <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-container">
-                        <video controls preload="none">
-                            <source src="vla.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3>UAV-VLA Demo</h3>
-                        <p>Vision-Language-Action System for Large Scale Aerial Mission Generation in action.</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-container">
-                        <video controls preload="none">
-                            <source src="codeagents.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3>UAV-CodeAgents</h3>
-                        <p>Multi-Agent ReAct and Vision-Language Reasoning for scalable UAV mission planning.</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-container">
-                        <video controls preload="none">
-                            <source src="vlpa.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3>UAV-VLPA* Path Planning</h3>
-                        <p>Visualization of optimal route generation and execution using the Vision-Language-Path-Action system.</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-container">
-                        <video controls preload="none">
-                            <source src="vlrr.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3>UAV-VLRR</h3>
-                        <p>Vision-Language Informed NMPC for Rapid Response in UAV Search and Rescue operations.</p>
-                        <a href="https://www.youtube.com/watch?v=KJqQGKKt1xY" target="_blank" class="youtube-link">
-                            <i class="fab fa-youtube"></i> Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-container">
-                        <video controls preload="none">
-                            <source src="racevla.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3>RaceVLA</h3>
-                        <p>VLA-based Racing Drone Navigation demonstrating human-like behavior in dynamic environments.</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-container">
-                        <video controls preload="none">
-                            <source src="cogdrone.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3>CognitiveDrone</h3>
-                        <p>Real-Time Cognitive Task Solving and Reasoning demonstration for autonomous UAVs.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
+
+    <script>
+        document.querySelectorAll('.play-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const video = button.parentElement.querySelector('video');
+                if (video.paused) {
+                    video.play();
+                    button.style.opacity = '0';
+                } else {
+                    video.pause();
+                    button.style.opacity = '1';
+                }
+            });
+        });
+
+        document.querySelectorAll('video').forEach(video => {
+            video.addEventListener('play', () => {
+                video.parentElement.querySelector('.play-button').style.opacity = '0';
+            });
+            
+            video.addEventListener('pause', () => {
+                video.parentElement.querySelector('.play-button').style.opacity = '1';
+            });
+            
+            video.addEventListener('ended', () => {
+                video.parentElement.querySelector('.play-button').style.opacity = '1';
+            });
+        });
+    </script>
 </body>
 </html> 
