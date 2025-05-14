@@ -231,6 +231,98 @@
                 justify-content: center;
             }
         }
+
+        .video-section {
+            margin: 4rem 0;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .video-card {
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 220, 130, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            width: 100%;
+            background: #000;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4em;
+        }
+
+        .video-info p {
+            font-size: 1em;
+            margin: 0.5rem 0;
+            color: var(--text-secondary);
+        }
+
+        .youtube-link {
+            color: var(--text) !important;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ff0000;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .youtube-link:hover {
+            background: #ff0000;
+            color: white !important;
+        }
+
+        .youtube-link i {
+            color: #ff0000;
+        }
+
+        .youtube-link:hover i {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -305,6 +397,92 @@
                 </div>
             </div>
         </div>
+
+        <section class="video-section">
+            <h2>Research Demonstrations</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls preload="none">
+                            <source src="vla.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>UAV-VLA Demo</h3>
+                        <p>Vision-Language-Action System for Large Scale Aerial Mission Generation in action.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls preload="none">
+                            <source src="codeagents.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>UAV-CodeAgents</h3>
+                        <p>Multi-Agent ReAct and Vision-Language Reasoning for scalable UAV mission planning.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls preload="none">
+                            <source src="vlpa.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>UAV-VLPA* Path Planning</h3>
+                        <p>Visualization of optimal route generation and execution using the Vision-Language-Path-Action system.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls preload="none">
+                            <source src="vlrr.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>UAV-VLRR</h3>
+                        <p>Vision-Language Informed NMPC for Rapid Response in UAV Search and Rescue operations.</p>
+                        <a href="https://www.youtube.com/watch?v=KJqQGKKt1xY" target="_blank" class="youtube-link">
+                            <i class="fab fa-youtube"></i> Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls preload="none">
+                            <source src="racevla.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>RaceVLA</h3>
+                        <p>VLA-based Racing Drone Navigation demonstrating human-like behavior in dynamic environments.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-container">
+                        <video controls preload="none">
+                            <source src="cogdrone.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>CognitiveDrone</h3>
+                        <p>Real-Time Cognitive Task Solving and Reasoning demonstration for autonomous UAVs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html> 
