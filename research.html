@@ -129,7 +129,9 @@
             padding: 2rem;
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
         }
 
         .research-card::before {
@@ -165,6 +167,7 @@
             font-weight: 600;
             letter-spacing: 0.5px;
             box-shadow: 0 4px 12px rgba(0, 220, 130, 0.2);
+            z-index: 4;
         }
 
         .card-title {
@@ -172,6 +175,8 @@
             font-size: 1.6em;
             margin: 0 0 1rem 0;
             font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+            z-index: 2;
         }
 
         .card-description {
@@ -179,12 +184,16 @@
             color: var(--text-secondary);
             font-size: 1.1em;
             line-height: 1.6;
+            position: relative;
+            z-index: 2;
         }
 
         .card-links {
             display: flex;
             gap: 1rem;
             margin-top: auto;
+            position: relative;
+            z-index: 4;
         }
 
         .card-links a {
@@ -199,6 +208,8 @@
             transition: all 0.3s ease;
             font-weight: 500;
             background: rgba(0, 220, 130, 0.05);
+            position: relative;
+            z-index: 4;
         }
 
         .card-links a:hover {
@@ -240,6 +251,7 @@
             overflow: hidden;
             border-top: 1px solid rgba(0, 220, 130, 0.1);
             border-bottom: 1px solid rgba(0, 220, 130, 0.1);
+            z-index: 1;
         }
 
         .video-preview video {
@@ -263,6 +275,7 @@
                 rgba(10,10,10,0.2) 80%,
                 rgba(10,10,10,0.8) 100%);
             pointer-events: none;
+            z-index: 2;
         }
 
         .play-button {
@@ -278,7 +291,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 2;
+            z-index: 3;
             transition: all 0.3s ease;
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
@@ -321,6 +334,46 @@
         .youtube-link:hover i {
             color: white;
         }
+
+        .video-controls {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-preview:hover .video-controls {
+            opacity: 1;
+        }
+
+        .fullscreen-button {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 220, 130, 0.9);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .fullscreen-button:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 220, 130, 0.4);
+        }
+
+        .fullscreen-button i {
+            color: var(--dark);
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -351,6 +404,11 @@
                     <div class="play-button">
                         <i class="fas fa-play"></i>
                     </div>
+                    <div class="video-controls">
+                        <button class="fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="card-links">
                     <a href="https://github.com/sautenich/uav-vla" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -367,6 +425,11 @@
                     </video>
                     <div class="play-button">
                         <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-controls">
+                        <button class="fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="card-links">
@@ -386,6 +449,11 @@
                     <div class="play-button">
                         <i class="fas fa-play"></i>
                     </div>
+                    <div class="video-controls">
+                        <button class="fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="card-links">
                     <a href="https://github.com/Sautenich/UAV-CodeAgents" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -402,6 +470,11 @@
                     </video>
                     <div class="play-button">
                         <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-controls">
+                        <button class="fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="card-links">
@@ -422,6 +495,11 @@
                     <div class="play-button">
                         <i class="fas fa-play"></i>
                     </div>
+                    <div class="video-controls">
+                        <button class="fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="card-links">
                     <a href="https://github.com/SerValera/RaceVLA" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -438,6 +516,11 @@
                     </video>
                     <div class="play-button">
                         <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-controls">
+                        <button class="fullscreen-button">
+                            <i class="fas fa-expand"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="card-links">
@@ -473,6 +556,48 @@
             
             video.addEventListener('ended', () => {
                 video.parentElement.querySelector('.play-button').style.opacity = '1';
+            });
+        });
+
+        // Add fullscreen functionality
+        document.querySelectorAll('.fullscreen-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const video = button.closest('.video-preview').querySelector('video');
+                if (!document.fullscreenElement) {
+                    if (video.requestFullscreen) {
+                        video.requestFullscreen();
+                    } else if (video.webkitRequestFullscreen) {
+                        video.webkitRequestFullscreen();
+                    } else if (video.msRequestFullscreen) {
+                        video.msRequestFullscreen();
+                    }
+                    button.querySelector('i').classList.remove('fa-expand');
+                    button.querySelector('i').classList.add('fa-compress');
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    }
+                    button.querySelector('i').classList.remove('fa-compress');
+                    button.querySelector('i').classList.add('fa-expand');
+                }
+            });
+        });
+
+        // Update fullscreen button icon when fullscreen changes
+        document.addEventListener('fullscreenchange', () => {
+            const buttons = document.querySelectorAll('.fullscreen-button i');
+            buttons.forEach(icon => {
+                if (document.fullscreenElement) {
+                    icon.classList.remove('fa-expand');
+                    icon.classList.add('fa-compress');
+                } else {
+                    icon.classList.remove('fa-compress');
+                    icon.classList.add('fa-expand');
+                }
             });
         });
     </script>
