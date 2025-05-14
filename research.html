@@ -279,6 +279,93 @@
             z-index: 2;
         }
 
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 3;
+        }
+
+        .video-preview:hover .video-controls {
+            opacity: 1;
+        }
+
+        .time-bar-container {
+            flex-grow: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .time-bar {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .time-bar::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .time-bar-container:hover .time-bar::after {
+            opacity: 1;
+        }
+
+        .video-button {
+            width: 32px;
+            height: 32px;
+            background: rgba(0, 220, 130, 0.9);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
+        }
+
+        .video-button:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .video-button i {
+            color: var(--dark);
+            font-size: 14px;
+        }
+
+        .time-display {
+            color: var(--text);
+            font-size: 0.9em;
+            min-width: 100px;
+            text-align: center;
+            font-family: 'Space Grotesk', monospace;
+        }
+
         .play-button {
             position: absolute;
             top: 50%;
@@ -337,21 +424,6 @@
 
         .youtube-link:hover i {
             color: var(--dark);
-        }
-
-        .video-controls {
-            position: absolute;
-            bottom: 1rem;
-            right: 1rem;
-            display: flex;
-            gap: 0.5rem;
-            z-index: 3;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .video-preview:hover .video-controls {
-            opacity: 1;
         }
 
         .fullscreen-button {
@@ -429,11 +501,15 @@
                     <video preload="none" poster="vla.mp4">
                         <source src="vla.mp4" type="video/mp4">
                     </video>
-                    <div class="play-button">
-                        <i class="fas fa-play"></i>
-                    </div>
                     <div class="video-controls">
-                        <button class="fullscreen-button">
+                        <button class="video-button play-pause">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="time-bar-container">
+                            <div class="time-bar"></div>
+                        </div>
+                        <div class="time-display">0:00 / 0:00</div>
+                        <button class="video-button fullscreen-button">
                             <i class="fas fa-expand"></i>
                         </button>
                     </div>
@@ -451,11 +527,15 @@
                     <video preload="none" poster="vlpa.mp4">
                         <source src="vlpa.mp4" type="video/mp4">
                     </video>
-                    <div class="play-button">
-                        <i class="fas fa-play"></i>
-                    </div>
                     <div class="video-controls">
-                        <button class="fullscreen-button">
+                        <button class="video-button play-pause">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="time-bar-container">
+                            <div class="time-bar"></div>
+                        </div>
+                        <div class="time-display">0:00 / 0:00</div>
+                        <button class="video-button fullscreen-button">
                             <i class="fas fa-expand"></i>
                         </button>
                     </div>
@@ -474,11 +554,15 @@
                     <video preload="none" poster="codeagents.mp4">
                         <source src="codeagents.mp4" type="video/mp4">
                     </video>
-                    <div class="play-button">
-                        <i class="fas fa-play"></i>
-                    </div>
                     <div class="video-controls">
-                        <button class="fullscreen-button">
+                        <button class="video-button play-pause">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="time-bar-container">
+                            <div class="time-bar"></div>
+                        </div>
+                        <div class="time-display">0:00 / 0:00</div>
+                        <button class="video-button fullscreen-button">
                             <i class="fas fa-expand"></i>
                         </button>
                     </div>
@@ -517,11 +601,15 @@
                     <video preload="none" poster="racevla.mp4">
                         <source src="racevla.mp4" type="video/mp4">
                     </video>
-                    <div class="play-button">
-                        <i class="fas fa-play"></i>
-                    </div>
                     <div class="video-controls">
-                        <button class="fullscreen-button">
+                        <button class="video-button play-pause">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="time-bar-container">
+                            <div class="time-bar"></div>
+                        </div>
+                        <div class="time-display">0:00 / 0:00</div>
+                        <button class="video-button fullscreen-button">
                             <i class="fas fa-expand"></i>
                         </button>
                     </div>
@@ -539,11 +627,15 @@
                     <video preload="none" poster="cogdrone.mp4">
                         <source src="cogdrone.mp4" type="video/mp4">
                     </video>
-                    <div class="play-button">
-                        <i class="fas fa-play"></i>
-                    </div>
                     <div class="video-controls">
-                        <button class="fullscreen-button">
+                        <button class="video-button play-pause">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="time-bar-container">
+                            <div class="time-bar"></div>
+                        </div>
+                        <div class="time-display">0:00 / 0:00</div>
+                        <button class="video-button fullscreen-button">
                             <i class="fas fa-expand"></i>
                         </button>
                     </div>
@@ -557,37 +649,56 @@
     </main>
 
     <script>
-        document.querySelectorAll('.play-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const video = button.parentElement.querySelector('video');
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            seconds = Math.floor(seconds % 60);
+            return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        document.querySelectorAll('.video-preview').forEach(preview => {
+            const video = preview.querySelector('video');
+            const playPauseBtn = preview.querySelector('.play-pause');
+            const timeBar = preview.querySelector('.time-bar');
+            const timeBarContainer = preview.querySelector('.time-bar-container');
+            const timeDisplay = preview.querySelector('.time-display');
+            const fullscreenBtn = preview.querySelector('.fullscreen-button');
+
+            // Play/Pause functionality
+            playPauseBtn.addEventListener('click', () => {
                 if (video.paused) {
                     video.play();
-                    button.style.opacity = '0';
+                    playPauseBtn.querySelector('i').classList.remove('fa-play');
+                    playPauseBtn.querySelector('i').classList.add('fa-pause');
                 } else {
                     video.pause();
-                    button.style.opacity = '1';
+                    playPauseBtn.querySelector('i').classList.remove('fa-pause');
+                    playPauseBtn.querySelector('i').classList.add('fa-play');
                 }
             });
-        });
 
-        document.querySelectorAll('video').forEach(video => {
-            video.addEventListener('play', () => {
-                video.parentElement.querySelector('.play-button').style.opacity = '0';
+            // Time bar functionality
+            timeBarContainer.addEventListener('click', (e) => {
+                const rect = timeBarContainer.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                video.currentTime = pos * video.duration;
             });
-            
-            video.addEventListener('pause', () => {
-                video.parentElement.querySelector('.play-button').style.opacity = '1';
+
+            // Update time bar and display
+            video.addEventListener('timeupdate', () => {
+                const progress = (video.currentTime / video.duration) * 100;
+                timeBar.style.width = `${progress}%`;
+                timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
             });
-            
+
+            // Handle video end
             video.addEventListener('ended', () => {
-                video.parentElement.querySelector('.play-button').style.opacity = '1';
+                playPauseBtn.querySelector('i').classList.remove('fa-pause');
+                playPauseBtn.querySelector('i').classList.add('fa-play');
+                timeBar.style.width = '0%';
             });
-        });
 
-        // Add fullscreen functionality with proper video scaling
-        document.querySelectorAll('.fullscreen-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const video = button.closest('.video-preview').querySelector('video');
+            // Fullscreen functionality
+            fullscreenBtn.addEventListener('click', () => {
                 if (!document.fullscreenElement) {
                     if (video.requestFullscreen) {
                         video.requestFullscreen();
@@ -596,10 +707,8 @@
                     } else if (video.msRequestFullscreen) {
                         video.msRequestFullscreen();
                     }
-                    // Ensure proper scaling in fullscreen
-                    video.style.objectFit = 'contain';
-                    button.querySelector('i').classList.remove('fa-expand');
-                    button.querySelector('i').classList.add('fa-compress');
+                    fullscreenBtn.querySelector('i').classList.remove('fa-expand');
+                    fullscreenBtn.querySelector('i').classList.add('fa-compress');
                 } else {
                     if (document.exitFullscreen) {
                         document.exitFullscreen();
@@ -608,20 +717,30 @@
                     } else if (document.msExitFullscreen) {
                         document.msExitFullscreen();
                     }
-                    // Reset scaling when exiting fullscreen
-                    video.style.objectFit = 'contain';
-                    button.querySelector('i').classList.remove('fa-compress');
-                    button.querySelector('i').classList.add('fa-expand');
+                    fullscreenBtn.querySelector('i').classList.remove('fa-compress');
+                    fullscreenBtn.querySelector('i').classList.add('fa-expand');
                 }
+            });
+
+            // Load metadata to display duration
+            video.addEventListener('loadedmetadata', () => {
+                timeDisplay.textContent = `0:00 / ${formatTime(video.duration)}`;
+            });
+
+            // Handle play state changes
+            video.addEventListener('play', () => {
+                playPauseBtn.querySelector('i').classList.remove('fa-play');
+                playPauseBtn.querySelector('i').classList.add('fa-pause');
+            });
+
+            video.addEventListener('pause', () => {
+                playPauseBtn.querySelector('i').classList.remove('fa-pause');
+                playPauseBtn.querySelector('i').classList.add('fa-play');
             });
         });
 
-        // Handle fullscreen change events
+        // Handle fullscreen changes
         document.addEventListener('fullscreenchange', () => {
-            const video = document.fullscreenElement;
-            if (video && video.tagName === 'VIDEO') {
-                video.style.objectFit = 'contain';
-            }
             const buttons = document.querySelectorAll('.fullscreen-button i');
             buttons.forEach(icon => {
                 if (document.fullscreenElement) {
@@ -632,30 +751,6 @@
                     icon.classList.add('fa-expand');
                 }
             });
-        });
-
-        // Handle webkit fullscreen change
-        document.addEventListener('webkitfullscreenchange', () => {
-            const video = document.webkitFullscreenElement;
-            if (video && video.tagName === 'VIDEO') {
-                video.style.objectFit = 'contain';
-            }
-        });
-
-        // Handle Mozilla fullscreen change
-        document.addEventListener('mozfullscreenchange', () => {
-            const video = document.mozFullScreenElement;
-            if (video && video.tagName === 'VIDEO') {
-                video.style.objectFit = 'contain';
-            }
-        });
-
-        // Handle MS fullscreen change
-        document.addEventListener('MSFullscreenChange', () => {
-            const video = document.msFullscreenElement;
-            if (video && video.tagName === 'VIDEO') {
-                video.style.objectFit = 'contain';
-            }
         });
     </script>
 </body>
