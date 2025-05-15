@@ -20,12 +20,11 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--dark);
-            color: var(--text);
+            background: #FFFFFF;
+            color: #333333;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            background: linear-gradient(135deg, var(--dark) 0%, #111111 100%);
+            line-height: 1.5;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -40,41 +39,25 @@
         }
 
         header {
-            background: rgba(20, 20, 20, 0.5);
-            backdrop-filter: blur(10px);
+            background: var(--primary);
             padding: 2rem 0;
-            border-bottom: 1px solid rgba(0, 220, 130, 0.2);
             position: relative;
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at top right, rgba(0, 220, 130, 0.1), transparent 70%);
-            pointer-events: none;
-        }
-
-        h1 {
-            color: var(--primary);
+        header h1 {
+            color: #FFFFFF;
             margin: 0;
             font-size: 2.5em;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         nav {
-            background: rgba(20, 20, 20, 0.8);
-            backdrop-filter: blur(10px);
+            background: #FFFFFF;
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(0, 220, 130, 0.1);
+            border-bottom: 1px solid rgba(0, 220, 130, 0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         nav .container {
@@ -84,7 +67,7 @@
         }
 
         nav a {
-            color: var(--text);
+            color: #333333;
             text-decoration: none;
             padding: 0.4rem 1.2rem;
             border-radius: 6px;
@@ -92,22 +75,6 @@
             position: relative;
             overflow: hidden;
             font-size: 0.95em;
-        }
-
-        nav a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::before {
-            width: 80%;
         }
 
         nav a:hover {
@@ -120,12 +87,12 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             padding: 1.5rem 0;
+            background: #FFFFFF;
         }
 
         .research-card {
-            background: rgba(20, 20, 20, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 220, 130, 0.1);
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 12px;
             padding: 1.5rem;
             transition: all 0.3s ease;
@@ -133,46 +100,16 @@
             overflow: visible;
             display: flex;
             flex-direction: column;
-        }
-
-        .research-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 220, 130, 0.1) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .research-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .research-card:hover::before {
-            opacity: 1;
-        }
-
-        .new-badge {
-            position: absolute;
-            top: 0.8rem;
-            right: 0.8rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--dark);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8em;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 12px rgba(0, 220, 130, 0.2);
-            z-index: 4;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .card-title {
-            color: var(--primary);
+            color: #333333;
             font-size: 1.4em;
             margin: 0 0 0.8rem 0;
             font-family: 'Space Grotesk', sans-serif;
@@ -195,7 +132,7 @@
 
         .card-description {
             margin-bottom: 1rem;
-            color: var(--text-secondary);
+            color: #666666;
             font-size: 0.95em;
             line-height: 1.5;
             position: relative;
@@ -211,26 +148,39 @@
         }
 
         .card-links a {
-            color: var(--text);
+            color: #333333;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
             padding: 0.5rem 1rem;
-            border: 1px solid rgba(0, 220, 130, 0.2);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 6px;
             transition: all 0.3s ease;
             font-weight: 500;
             font-size: 0.9em;
-            background: rgba(0, 220, 130, 0.05);
-            position: relative;
-            z-index: 4;
+            background: #FFFFFF;
         }
 
         .card-links a:hover {
             background: var(--primary);
-            color: var(--dark);
+            color: #FFFFFF;
             border-color: var(--primary);
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.8rem;
+            background: var(--primary);
+            color: #FFFFFF;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(0, 220, 130, 0.2);
+            z-index: 4;
         }
 
         @media (max-width: 768px) {
@@ -388,7 +338,7 @@
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <p class="card-description">Vision-Language-Action System for Large Scale Aerial Mission Generation. A groundbreaking approach to UAV mission planning using natural language commands.</p>
+                <p class="card-description">Vision-Language-Action system for UAV mission planning using natural language commands.</p>
                 <div class="card-links">
                     <a href="https://github.com/sautenich/uav-vla" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://arxiv.org/abs/2501.05014" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
@@ -410,7 +360,7 @@
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <p class="card-description">Vision-Language-Path-Action System for optimal route generation, combining visual understanding with efficient path planning.</p>
+                <p class="card-description">Vision-Language-Path system combining visual understanding with efficient path planning.</p>
                 <div class="card-links">
                     <a href="https://github.com/Sautenich/UAV-VLPA" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://arxiv.org/abs/2503.02454" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
@@ -433,7 +383,7 @@
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <p class="card-description">Scalable UAV Mission Planning via Multi-Agent ReAct and Vision-Language Reasoning, pushing the boundaries of autonomous coordination.</p>
+                <p class="card-description">Multi-Agent ReAct system for scalable UAV mission planning and coordination.</p>
                 <div class="card-links">
                     <a href="https://github.com/Sautenich/UAV-CodeAgents" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://arxiv.org/abs/2505.07236" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
@@ -453,7 +403,7 @@
                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000;">
                     </iframe>
                 </div>
-                <p class="card-description">Vision-Language Informed NMPC for Rapid Response in UAV Search and Rescue operations.</p>
+                <p class="card-description">Vision-Language NMPC system for rapid response in UAV search and rescue.</p>
                 <div class="card-links">
                     <a href="https://arxiv.org/abs/2503.02465" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
                 </div>
@@ -474,7 +424,7 @@
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <p class="card-description">VLA-based Racing Drone Navigation with Human-like Behavior, pushing the limits of autonomous racing capabilities.</p>
+                <p class="card-description">VLA-based racing drone navigation with human-like behavior.</p>
                 <div class="card-links">
                     <a href="https://github.com/SerValera/RaceVLA" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://arxiv.org/abs/2503.02572" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
@@ -494,7 +444,7 @@
                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000;">
                     </iframe>
                 </div>
-                <p class="card-description">VLA Model and Evaluation Benchmark for Real-Time Cognitive Task Solving and Reasoning in UAVs.</p>
+                <p class="card-description">VLA model for real-time cognitive task solving in UAVs.</p>
                 <div class="card-links">
                     <a href="https://github.com/SerValera/docker_CognitiveDrone_DataCollector" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://arxiv.org/html/2503.01378v1" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
