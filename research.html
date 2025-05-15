@@ -42,7 +42,7 @@
         header {
             background: rgba(20, 20, 20, 0.5);
             backdrop-filter: blur(10px);
-            padding: 3rem 0;
+            padding: 2rem 0;
             border-bottom: 1px solid rgba(0, 220, 130, 0.2);
             position: relative;
         }
@@ -61,7 +61,7 @@
         h1 {
             color: var(--primary);
             margin: 0;
-            font-size: 3em;
+            font-size: 2.5em;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -86,11 +86,12 @@
         nav a {
             color: var(--text);
             text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 8px;
+            padding: 0.4rem 1.2rem;
+            border-radius: 6px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            font-size: 0.95em;
         }
 
         nav a::before {
@@ -116,17 +117,17 @@
 
         .research-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            padding: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1.5rem 0;
         }
 
         .research-card {
             background: rgba(20, 20, 20, 0.5);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 220, 130, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 1.5rem;
             transition: all 0.3s ease;
             position: relative;
             overflow: visible;
@@ -157,13 +158,13 @@
 
         .new-badge {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 0.8rem;
+            right: 0.8rem;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: var(--dark);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9em;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8em;
             font-weight: 600;
             letter-spacing: 0.5px;
             box-shadow: 0 4px 12px rgba(0, 220, 130, 0.2);
@@ -172,8 +173,8 @@
 
         .card-title {
             color: var(--primary);
-            font-size: 1.6em;
-            margin: 0 0 1rem 0;
+            font-size: 1.4em;
+            margin: 0 0 0.8rem 0;
             font-family: 'Space Grotesk', sans-serif;
             position: relative;
             z-index: 2;
@@ -182,8 +183,8 @@
         .title-image {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            margin-bottom: 1rem;
+            border-radius: 6px;
+            margin-bottom: 0.8rem;
             border: 1px solid rgba(0, 220, 130, 0.2);
             transition: transform 0.3s ease;
         }
@@ -193,17 +194,17 @@
         }
 
         .card-description {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: var(--text-secondary);
-            font-size: 1.1em;
-            line-height: 1.6;
+            font-size: 0.95em;
+            line-height: 1.5;
             position: relative;
             z-index: 2;
         }
 
         .card-links {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             margin-top: auto;
             position: relative;
             z-index: 4;
@@ -214,12 +215,13 @@
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
             border: 1px solid rgba(0, 220, 130, 0.2);
-            border-radius: 8px;
+            border-radius: 6px;
             transition: all 0.3s ease;
             font-weight: 500;
+            font-size: 0.9em;
             background: rgba(0, 220, 130, 0.05);
             position: relative;
             z-index: 4;
@@ -238,50 +240,72 @@
 
             .research-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 1.2rem;
             }
 
             nav .container {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 0.8rem;
-                padding: 0.5rem;
+                gap: 0.6rem;
+                padding: 0.4rem;
             }
 
             nav a {
                 text-align: center;
-                min-width: 100px;
-                padding: 0.5rem 1rem;
-                font-size: 0.95em;
+                min-width: 90px;
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9em;
             }
 
             .card-links {
                 flex-direction: column;
                 align-items: center;
-                gap: 0.8rem;
+                gap: 0.6rem;
             }
 
             .card-links a {
                 width: 80%;
                 justify-content: center;
                 text-align: center;
+                font-size: 0.85em;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .card-title {
+                font-size: 1.3em;
             }
         }
 
         @media (max-width: 480px) {
             nav a {
-                min-width: 80px;
-                font-size: 0.9em;
-                padding: 0.4rem 0.8rem;
+                min-width: 70px;
+                font-size: 0.85em;
+                padding: 0.3rem 0.6rem;
             }
 
             .card-links a {
                 width: 100%;
+                font-size: 0.8em;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .card-title {
+                font-size: 1.2em;
+            }
+
+            .card-description {
+                font-size: 0.9em;
             }
         }
 
         .video-preview {
-            margin: 1rem -2rem;
+            margin: 0.8rem -1.5rem;
             position: relative;
             padding-top: 56.25%;
             background: #000;
@@ -480,109 +504,7 @@
     </main>
 
     <script>
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            seconds = Math.floor(seconds % 60);
-            return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-        }
-
-        document.querySelectorAll('.video-preview').forEach(preview => {
-            const video = preview.querySelector('video');
-            const playPauseBtn = preview.querySelector('.play-pause');
-            const timeBar = preview.querySelector('.time-bar');
-            const timeBarContainer = preview.querySelector('.time-bar-container');
-            const timeDisplay = preview.querySelector('.time-display');
-            const fullscreenBtn = preview.querySelector('.fullscreen-button');
-
-            // Play/Pause functionality
-            playPauseBtn.addEventListener('click', () => {
-                if (video.paused) {
-                    video.play();
-                    playPauseBtn.querySelector('i').classList.remove('fa-play');
-                    playPauseBtn.querySelector('i').classList.add('fa-pause');
-                } else {
-                    video.pause();
-                    playPauseBtn.querySelector('i').classList.remove('fa-pause');
-                    playPauseBtn.querySelector('i').classList.add('fa-play');
-                }
-            });
-
-            // Time bar functionality
-            timeBarContainer.addEventListener('click', (e) => {
-                const rect = timeBarContainer.getBoundingClientRect();
-                const pos = (e.clientX - rect.left) / rect.width;
-                video.currentTime = pos * video.duration;
-            });
-
-            // Update time bar and display
-            video.addEventListener('timeupdate', () => {
-                const progress = (video.currentTime / video.duration) * 100;
-                timeBar.style.width = `${progress}%`;
-                timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
-            });
-
-            // Handle video end
-            video.addEventListener('ended', () => {
-                playPauseBtn.querySelector('i').classList.remove('fa-pause');
-                playPauseBtn.querySelector('i').classList.add('fa-play');
-                timeBar.style.width = '0%';
-            });
-
-            // Fullscreen functionality
-            fullscreenBtn.addEventListener('click', () => {
-                if (!document.fullscreenElement) {
-                    if (video.requestFullscreen) {
-                        video.requestFullscreen();
-                    } else if (video.webkitRequestFullscreen) {
-                        video.webkitRequestFullscreen();
-                    } else if (video.msRequestFullscreen) {
-                        video.msRequestFullscreen();
-                    }
-                    fullscreenBtn.querySelector('i').classList.remove('fa-expand');
-                    fullscreenBtn.querySelector('i').classList.add('fa-compress');
-                } else {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen();
-                    } else if (document.webkitExitFullscreen) {
-                        document.webkitExitFullscreen();
-                    } else if (document.msExitFullscreen) {
-                        document.msExitFullscreen();
-                    }
-                    fullscreenBtn.querySelector('i').classList.remove('fa-compress');
-                    fullscreenBtn.querySelector('i').classList.add('fa-expand');
-                }
-            });
-
-            // Load metadata to display duration
-            video.addEventListener('loadedmetadata', () => {
-                timeDisplay.textContent = `0:00 / ${formatTime(video.duration)}`;
-            });
-
-            // Handle play state changes
-            video.addEventListener('play', () => {
-                playPauseBtn.querySelector('i').classList.remove('fa-play');
-                playPauseBtn.querySelector('i').classList.add('fa-pause');
-            });
-
-            video.addEventListener('pause', () => {
-                playPauseBtn.querySelector('i').classList.remove('fa-pause');
-                playPauseBtn.querySelector('i').classList.add('fa-play');
-            });
-        });
-
-        // Handle fullscreen changes
-        document.addEventListener('fullscreenchange', () => {
-            const buttons = document.querySelectorAll('.fullscreen-button i');
-            buttons.forEach(icon => {
-                if (document.fullscreenElement) {
-                    icon.classList.remove('fa-expand');
-                    icon.classList.add('fa-compress');
-                } else {
-                    icon.classList.remove('fa-compress');
-                    icon.classList.add('fa-expand');
-                }
-            });
-        });
+        // No custom video controls needed anymore as we're using native controls
     </script>
 </body>
 </html> 
