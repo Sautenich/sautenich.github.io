@@ -291,16 +291,6 @@
             z-index: 1;
         }
 
-        .video-preview video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: #000;
-        }
-
         .video-preview::after {
             content: '';
             position: absolute;
@@ -314,166 +304,6 @@
                 rgba(10,10,10,0.8) 100%);
             pointer-events: none;
             z-index: 2;
-        }
-
-        .video-controls {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 3;
-        }
-
-        .video-preview:hover .video-controls {
-            opacity: 1;
-        }
-
-        .time-bar-container {
-            flex-grow: 1;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
-            cursor: pointer;
-            position: relative;
-            transition: height 0.2s ease;
-            overflow: hidden;
-        }
-
-        .time-bar-container:hover {
-            height: 6px;
-        }
-
-        .time-bar {
-            height: 100%;
-            background: var(--primary);
-            border-radius: 2px;
-            width: 0%;
-            transition: width 0.1s linear;
-        }
-
-        .video-button {
-            width: 32px;
-            height: 32px;
-            background: rgba(0, 220, 130, 0.9);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            flex-shrink: 0;
-        }
-
-        .video-button:hover {
-            background: var(--primary);
-            transform: scale(1.1);
-        }
-
-        .video-button i {
-            color: var(--dark);
-            font-size: 14px;
-        }
-
-        .time-display {
-            color: var(--text);
-            font-size: 0.9em;
-            min-width: 100px;
-            text-align: center;
-            font-family: 'Space Grotesk', monospace;
-        }
-
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(0, 220, 130, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 3;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .play-button:hover {
-            background: var(--primary);
-            transform: translate(-50%, -50%) scale(1.1);
-            box-shadow: 0 0 20px rgba(0, 220, 130, 0.4);
-        }
-
-        .play-button i {
-            color: var(--dark);
-            font-size: 24px;
-            margin-left: 4px;
-        }
-
-        .youtube-link {
-            color: var(--text) !important;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            border: 1px solid rgba(0, 220, 130, 0.2);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            margin-top: 0;
-            font-weight: 500;
-            background: rgba(0, 220, 130, 0.05);
-        }
-
-        .youtube-link:hover {
-            background: var(--primary);
-            color: var(--dark) !important;
-            border-color: var(--primary);
-        }
-
-        .youtube-link i {
-            color: var(--primary);
-            transition: color 0.3s ease;
-        }
-
-        .youtube-link:hover i {
-            color: var(--dark);
-        }
-
-        .fullscreen-button {
-            width: 40px;
-            height: 40px;
-            background: rgba(0, 220, 130, 0.9);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .fullscreen-button:hover {
-            background: var(--primary);
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(0, 220, 130, 0.4);
-        }
-
-        .fullscreen-button i {
-            color: var(--dark);
-            font-size: 16px;
         }
 
         /* Add specific styles for fullscreen */
@@ -524,21 +354,16 @@
                 <img src="uav-vla_title.png" alt="UAV-VLA Project" class="title-image">
                 <p class="card-description">Vision-Language-Action System for Large Scale Aerial Mission Generation. A groundbreaking approach to UAV mission planning using natural language commands.</p>
                 <div class="video-preview">
-                    <video preload="none" poster="vla.mp4">
-                        <source src="vla.mp4" type="video/mp4">
+                    <video 
+                        preload="metadata" 
+                        playsinline 
+                        controls
+                        controlsList="nodownload"
+                        style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; background: #000;"
+                    >
+                        <source src="vla.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
                     </video>
-                    <div class="video-controls">
-                        <button class="video-button play-pause">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="time-bar-container">
-                            <div class="time-bar"></div>
-                        </div>
-                        <div class="time-display">0:00 / 0:00</div>
-                        <button class="video-button fullscreen-button">
-                            <i class="fas fa-expand"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="card-links">
                     <a href="https://github.com/sautenich/uav-vla" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -551,21 +376,16 @@
                 <img src="uav-vlpa_title.png" alt="UAV-VLPA Project" class="title-image">
                 <p class="card-description">Vision-Language-Path-Action System for optimal route generation, combining visual understanding with efficient path planning.</p>
                 <div class="video-preview">
-                    <video preload="none" poster="vlpa.mp4">
-                        <source src="vlpa.mp4" type="video/mp4">
+                    <video 
+                        preload="metadata" 
+                        playsinline 
+                        controls
+                        controlsList="nodownload"
+                        style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; background: #000;"
+                    >
+                        <source src="vlpa.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
                     </video>
-                    <div class="video-controls">
-                        <button class="video-button play-pause">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="time-bar-container">
-                            <div class="time-bar"></div>
-                        </div>
-                        <div class="time-display">0:00 / 0:00</div>
-                        <button class="video-button fullscreen-button">
-                            <i class="fas fa-expand"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="card-links">
                     <a href="https://github.com/Sautenich/UAV-VLPA" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -579,21 +399,16 @@
                 <img src="uav-codeagents_title.png" alt="UAV-CodeAgents Project" class="title-image">
                 <p class="card-description">Scalable UAV Mission Planning via Multi-Agent ReAct and Vision-Language Reasoning, pushing the boundaries of autonomous coordination.</p>
                 <div class="video-preview">
-                    <video preload="none" poster="codeagents.mp4">
-                        <source src="codeagents.mp4" type="video/mp4">
+                    <video 
+                        preload="metadata" 
+                        playsinline 
+                        controls
+                        controlsList="nodownload"
+                        style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; background: #000;"
+                    >
+                        <source src="codeagents.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
                     </video>
-                    <div class="video-controls">
-                        <button class="video-button play-pause">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="time-bar-container">
-                            <div class="time-bar"></div>
-                        </div>
-                        <div class="time-display">0:00 / 0:00</div>
-                        <button class="video-button fullscreen-button">
-                            <i class="fas fa-expand"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="card-links">
                     <a href="https://github.com/Sautenich/UAV-CodeAgents" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -635,18 +450,6 @@
                         <source src="racevla.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
-                    <div class="video-controls">
-                        <button class="video-button play-pause">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="time-bar-container">
-                            <div class="time-bar"></div>
-                        </div>
-                        <div class="time-display">0:00 / 0:00</div>
-                        <button class="video-button fullscreen-button">
-                            <i class="fas fa-expand"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="card-links">
                     <a href="https://github.com/SerValera/RaceVLA" target="_blank"><i class="fab fa-github"></i> GitHub</a>
