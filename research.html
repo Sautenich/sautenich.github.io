@@ -177,6 +177,12 @@
             font-family: 'Space Grotesk', sans-serif;
             position: relative;
             z-index: 2;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .card-title:hover {
+            color: var(--primary-light);
         }
 
         .card-description {
@@ -276,6 +282,65 @@
             border-top: 1px solid rgba(0, 220, 130, 0.1);
             border-bottom: 1px solid rgba(0, 220, 130, 0.1);
             z-index: 1;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-preview.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        .preview-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-preview.playing .preview-image {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 220, 130, 0.9);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 4;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .play-overlay:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 220, 130, 0.4);
+        }
+
+        .play-overlay i {
+            color: var(--dark);
+            font-size: 16px;
+            margin-left: 2px;
+        }
+
+        .video-preview.playing .play-overlay {
+            opacity: 0;
+            pointer-events: none;
         }
 
         .video-preview video {
@@ -286,6 +351,7 @@
             height: 100%;
             object-fit: contain;
             background: #000;
+            z-index: 1;
         }
 
         .video-preview::after {
@@ -510,7 +576,11 @@
                 <h2 class="card-title">UAV-VLA</h2>
                 <p class="card-description">Vision-Language-Action System for Large Scale Aerial Mission Generation. A groundbreaking approach to UAV mission planning using natural language commands.</p>
                 <div class="video-preview">
-                    <video preload="none" poster="vla.mp4">
+                    <img src="vla_preview.jpg" class="preview-image" alt="UAV-VLA Preview">
+                    <button class="play-overlay">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <video preload="none">
                         <source src="vla.mp4" type="video/mp4">
                     </video>
                     <div class="video-controls">
@@ -536,7 +606,11 @@
                 <h2 class="card-title">UAV-VLPA</h2>
                 <p class="card-description">Vision-Language-Path-Action System for optimal route generation, combining visual understanding with efficient path planning.</p>
                 <div class="video-preview">
-                    <video preload="none" poster="vlpa.mp4">
+                    <img src="vlpa_preview.jpg" class="preview-image" alt="UAV-VLPA Preview">
+                    <button class="play-overlay">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <video preload="none">
                         <source src="vlpa.mp4" type="video/mp4">
                     </video>
                     <div class="video-controls">
@@ -563,7 +637,11 @@
                 <h2 class="card-title">UAV-CodeAgents</h2>
                 <p class="card-description">Scalable UAV Mission Planning via Multi-Agent ReAct and Vision-Language Reasoning, pushing the boundaries of autonomous coordination.</p>
                 <div class="video-preview">
-                    <video preload="none" poster="codeagents.mp4">
+                    <img src="codeagents_preview.jpg" class="preview-image" alt="UAV-CodeAgents Preview">
+                    <button class="play-overlay">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <video preload="none">
                         <source src="codeagents.mp4" type="video/mp4">
                     </video>
                     <div class="video-controls">
@@ -607,7 +685,11 @@
                 <h2 class="card-title">RaceVLA</h2>
                 <p class="card-description">VLA-based Racing Drone Navigation with Human-like Behavior, pushing the limits of autonomous racing capabilities.</p>
                 <div class="video-preview">
-                    <video preload="none" poster="racevla_poster.jpg">
+                    <img src="racevla_preview.jpg" class="preview-image" alt="RaceVLA Preview">
+                    <button class="play-overlay">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <video preload="none">
                         <source src="racevla.mp4" type="video/mp4">
                     </video>
                     <div class="video-controls">
@@ -657,15 +739,35 @@
             return `${minutes}:${seconds.toString().padStart(2, '0')}`;
         }
 
-        document.querySelectorAll('.video-preview').forEach(preview => {
-            const video = preview.querySelector('video');
+        document.querySelectorAll('.research-card').forEach(card => {
+            const title = card.querySelector('.card-title');
+            const preview = card.querySelector('.video-preview');
+            const video = preview?.querySelector('video');
+            
             if (!video) return; // Skip if it's a YouTube embed
 
+            // Title click handler
+            title.addEventListener('click', () => {
+                preview.classList.toggle('visible');
+            });
+
+            const playOverlay = preview.querySelector('.play-overlay');
             const playPauseBtn = preview.querySelector('.play-pause');
             const timeBar = preview.querySelector('.time-bar');
             const timeBarContainer = preview.querySelector('.time-bar-container');
             const timeDisplay = preview.querySelector('.time-display');
             const fullscreenBtn = preview.querySelector('.fullscreen-button');
+
+            // Play overlay button
+            playOverlay.addEventListener('click', () => {
+                preview.classList.add('playing');
+                video.play().catch(e => {
+                    console.error('Error playing video:', e);
+                    timeDisplay.textContent = 'Error playing video';
+                });
+                playPauseBtn.querySelector('i').classList.remove('fa-play');
+                playPauseBtn.querySelector('i').classList.add('fa-pause');
+            });
 
             // Error handling
             video.addEventListener('error', (e) => {
@@ -673,6 +775,7 @@
                 timeDisplay.textContent = 'Error loading video';
                 playPauseBtn.style.opacity = '0.5';
                 playPauseBtn.disabled = true;
+                preview.classList.remove('playing');
             });
 
             // Loading feedback
@@ -691,14 +794,17 @@
             // Play/Pause functionality
             playPauseBtn.addEventListener('click', () => {
                 if (video.paused) {
+                    preview.classList.add('playing');
                     video.play().catch(e => {
                         console.error('Error playing video:', e);
                         timeDisplay.textContent = 'Error playing video';
+                        preview.classList.remove('playing');
                     });
                     playPauseBtn.querySelector('i').classList.remove('fa-play');
                     playPauseBtn.querySelector('i').classList.add('fa-pause');
                 } else {
                     video.pause();
+                    preview.classList.remove('playing');
                     playPauseBtn.querySelector('i').classList.remove('fa-pause');
                     playPauseBtn.querySelector('i').classList.add('fa-play');
                 }
@@ -720,6 +826,7 @@
 
             // Handle video end
             video.addEventListener('ended', () => {
+                preview.classList.remove('playing');
                 playPauseBtn.querySelector('i').classList.remove('fa-pause');
                 playPauseBtn.querySelector('i').classList.add('fa-play');
                 timeBar.style.width = '0%';
@@ -752,16 +859,13 @@
 
             // Handle fullscreen changes
             document.addEventListener('fullscreenchange', () => {
-                const buttons = document.querySelectorAll('.fullscreen-button i');
-                buttons.forEach(icon => {
-                    if (document.fullscreenElement) {
-                        icon.classList.remove('fa-expand');
-                        icon.classList.add('fa-compress');
-                    } else {
-                        icon.classList.remove('fa-compress');
-                        icon.classList.add('fa-expand');
-                    }
-                });
+                if (!document.fullscreenElement) {
+                    fullscreenBtn.querySelector('i').classList.remove('fa-compress');
+                    fullscreenBtn.querySelector('i').classList.add('fa-expand');
+                } else {
+                    fullscreenBtn.querySelector('i').classList.remove('fa-expand');
+                    fullscreenBtn.querySelector('i').classList.add('fa-compress');
+                }
             });
         });
     </script>
