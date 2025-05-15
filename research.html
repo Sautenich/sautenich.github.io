@@ -659,16 +659,42 @@
 
         document.querySelectorAll('.video-preview').forEach(preview => {
             const video = preview.querySelector('video');
+            if (!video) return; // Skip if it's a YouTube embed
+
             const playPauseBtn = preview.querySelector('.play-pause');
             const timeBar = preview.querySelector('.time-bar');
             const timeBarContainer = preview.querySelector('.time-bar-container');
             const timeDisplay = preview.querySelector('.time-display');
             const fullscreenBtn = preview.querySelector('.fullscreen-button');
 
+            // Error handling
+            video.addEventListener('error', (e) => {
+                console.error('Error loading video:', e);
+                timeDisplay.textContent = 'Error loading video';
+                playPauseBtn.style.opacity = '0.5';
+                playPauseBtn.disabled = true;
+            });
+
+            // Loading feedback
+            video.addEventListener('loadstart', () => {
+                timeDisplay.textContent = 'Loading...';
+            });
+
+            video.addEventListener('canplay', () => {
+                playPauseBtn.style.opacity = '1';
+                playPauseBtn.disabled = false;
+                if (video.duration) {
+                    timeDisplay.textContent = `0:00 / ${formatTime(video.duration)}`;
+                }
+            });
+
             // Play/Pause functionality
             playPauseBtn.addEventListener('click', () => {
                 if (video.paused) {
-                    video.play();
+                    video.play().catch(e => {
+                        console.error('Error playing video:', e);
+                        timeDisplay.textContent = 'Error playing video';
+                    });
                     playPauseBtn.querySelector('i').classList.remove('fa-play');
                     playPauseBtn.querySelector('i').classList.add('fa-pause');
                 } else {
@@ -724,34 +750,18 @@
                 }
             });
 
-            // Load metadata to display duration
-            video.addEventListener('loadedmetadata', () => {
-                timeDisplay.textContent = `0:00 / ${formatTime(video.duration)}`;
-            });
-
-            // Handle play state changes
-            video.addEventListener('play', () => {
-                playPauseBtn.querySelector('i').classList.remove('fa-play');
-                playPauseBtn.querySelector('i').classList.add('fa-pause');
-            });
-
-            video.addEventListener('pause', () => {
-                playPauseBtn.querySelector('i').classList.remove('fa-pause');
-                playPauseBtn.querySelector('i').classList.add('fa-play');
-            });
-        });
-
-        // Handle fullscreen changes
-        document.addEventListener('fullscreenchange', () => {
-            const buttons = document.querySelectorAll('.fullscreen-button i');
-            buttons.forEach(icon => {
-                if (document.fullscreenElement) {
-                    icon.classList.remove('fa-expand');
-                    icon.classList.add('fa-compress');
-                } else {
-                    icon.classList.remove('fa-compress');
-                    icon.classList.add('fa-expand');
-                }
+            // Handle fullscreen changes
+            document.addEventListener('fullscreenchange', () => {
+                const buttons = document.querySelectorAll('.fullscreen-button i');
+                buttons.forEach(icon => {
+                    if (document.fullscreenElement) {
+                        icon.classList.remove('fa-expand');
+                        icon.classList.add('fa-compress');
+                    } else {
+                        icon.classList.remove('fa-compress');
+                        icon.classList.add('fa-expand');
+                    }
+                });
             });
         });
     </script>
