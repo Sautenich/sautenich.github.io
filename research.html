@@ -282,17 +282,9 @@
             border-top: 1px solid rgba(0, 220, 130, 0.1);
             border-bottom: 1px solid rgba(0, 220, 130, 0.1);
             z-index: 1;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
-        .video-preview.visible {
-            display: block;
-            opacity: 1;
-        }
-
-        .preview-image {
+        .title-image {
             position: absolute;
             top: 0;
             left: 0;
@@ -303,17 +295,18 @@
             transition: opacity 0.3s ease;
         }
 
-        .video-preview.playing .preview-image {
+        .video-preview.playing .title-image {
             opacity: 0;
             pointer-events: none;
         }
 
         .play-overlay {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 40px;
-            height: 40px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
             background: rgba(0, 220, 130, 0.9);
             border: none;
             border-radius: 50%;
@@ -328,14 +321,14 @@
 
         .play-overlay:hover {
             background: var(--primary);
-            transform: scale(1.1);
+            transform: translate(-50%, -50%) scale(1.1);
             box-shadow: 0 0 20px rgba(0, 220, 130, 0.4);
         }
 
         .play-overlay i {
             color: var(--dark);
-            font-size: 16px;
-            margin-left: 2px;
+            font-size: 32px;
+            margin-left: 8px;
         }
 
         .video-preview.playing .play-overlay {
@@ -354,6 +347,10 @@
             z-index: 1;
         }
 
+        .video-controls {
+            display: none;
+        }
+
         .video-preview::after {
             content: '';
             position: absolute;
@@ -367,48 +364,6 @@
                 rgba(10,10,10,0.8) 100%);
             pointer-events: none;
             z-index: 2;
-        }
-
-        .video-controls {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 3;
-        }
-
-        .video-preview:hover .video-controls {
-            opacity: 1;
-        }
-
-        .time-bar-container {
-            flex-grow: 1;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
-            cursor: pointer;
-            position: relative;
-            transition: height 0.2s ease;
-            overflow: hidden;
-        }
-
-        .time-bar-container:hover {
-            height: 6px;
-        }
-
-        .time-bar {
-            height: 100%;
-            background: var(--primary);
-            border-radius: 2px;
-            width: 0%;
-            transition: width 0.1s linear;
         }
 
         .video-button {
@@ -434,6 +389,29 @@
         .video-button i {
             color: var(--dark);
             font-size: 14px;
+        }
+
+        .time-bar-container {
+            flex-grow: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+            transition: height 0.2s ease;
+            overflow: hidden;
+        }
+
+        .time-bar-container:hover {
+            height: 6px;
+        }
+
+        .time-bar {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.1s linear;
         }
 
         .time-display {
@@ -576,25 +554,13 @@
                 <h2 class="card-title">UAV-VLA</h2>
                 <p class="card-description">Vision-Language-Action System for Large Scale Aerial Mission Generation. A groundbreaking approach to UAV mission planning using natural language commands.</p>
                 <div class="video-preview">
-                    <img src="vla_preview.jpg" class="preview-image" alt="UAV-VLA Preview">
+                    <img src="uav-vla_title.png" class="title-image" alt="UAV-VLA Title">
                     <button class="play-overlay">
                         <i class="fas fa-play"></i>
                     </button>
                     <video preload="none">
                         <source src="vla.mp4" type="video/mp4">
                     </video>
-                    <div class="video-controls">
-                        <button class="video-button play-pause">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="time-bar-container">
-                            <div class="time-bar"></div>
-                        </div>
-                        <div class="time-display">0:00 / 0:00</div>
-                        <button class="video-button fullscreen-button">
-                            <i class="fas fa-expand"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="card-links">
                     <a href="https://github.com/sautenich/uav-vla" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -606,25 +572,13 @@
                 <h2 class="card-title">UAV-VLPA</h2>
                 <p class="card-description">Vision-Language-Path-Action System for optimal route generation, combining visual understanding with efficient path planning.</p>
                 <div class="video-preview">
-                    <img src="vlpa_preview.jpg" class="preview-image" alt="UAV-VLPA Preview">
+                    <img src="uav-vlpa_title.png" class="title-image" alt="UAV-VLPA Title">
                     <button class="play-overlay">
                         <i class="fas fa-play"></i>
                     </button>
                     <video preload="none">
                         <source src="vlpa.mp4" type="video/mp4">
                     </video>
-                    <div class="video-controls">
-                        <button class="video-button play-pause">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="time-bar-container">
-                            <div class="time-bar"></div>
-                        </div>
-                        <div class="time-display">0:00 / 0:00</div>
-                        <button class="video-button fullscreen-button">
-                            <i class="fas fa-expand"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="card-links">
                     <a href="https://github.com/Sautenich/UAV-VLPA" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -637,25 +591,13 @@
                 <h2 class="card-title">UAV-CodeAgents</h2>
                 <p class="card-description">Scalable UAV Mission Planning via Multi-Agent ReAct and Vision-Language Reasoning, pushing the boundaries of autonomous coordination.</p>
                 <div class="video-preview">
-                    <img src="codeagents_preview.jpg" class="preview-image" alt="UAV-CodeAgents Preview">
+                    <img src="uav-codeagents_title.png" class="title-image" alt="UAV-CodeAgents Title">
                     <button class="play-overlay">
                         <i class="fas fa-play"></i>
                     </button>
                     <video preload="none">
                         <source src="codeagents.mp4" type="video/mp4">
                     </video>
-                    <div class="video-controls">
-                        <button class="video-button play-pause">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="time-bar-container">
-                            <div class="time-bar"></div>
-                        </div>
-                        <div class="time-display">0:00 / 0:00</div>
-                        <button class="video-button fullscreen-button">
-                            <i class="fas fa-expand"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="card-links">
                     <a href="https://github.com/Sautenich/UAV-CodeAgents" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -685,25 +627,13 @@
                 <h2 class="card-title">RaceVLA</h2>
                 <p class="card-description">VLA-based Racing Drone Navigation with Human-like Behavior, pushing the limits of autonomous racing capabilities.</p>
                 <div class="video-preview">
-                    <img src="racevla_preview.jpg" class="preview-image" alt="RaceVLA Preview">
+                    <img src="racevla_title.png" class="title-image" alt="RaceVLA Title">
                     <button class="play-overlay">
                         <i class="fas fa-play"></i>
                     </button>
                     <video preload="none">
                         <source src="racevla.mp4" type="video/mp4">
                     </video>
-                    <div class="video-controls">
-                        <button class="video-button play-pause">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <div class="time-bar-container">
-                            <div class="time-bar"></div>
-                        </div>
-                        <div class="time-display">0:00 / 0:00</div>
-                        <button class="video-button fullscreen-button">
-                            <i class="fas fa-expand"></i>
-                        </button>
-                    </div>
                 </div>
                 <div class="card-links">
                     <a href="https://github.com/SerValera/RaceVLA" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -733,138 +663,38 @@
     </main>
 
     <script>
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            seconds = Math.floor(seconds % 60);
-            return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-        }
-
-        document.querySelectorAll('.research-card').forEach(card => {
-            const title = card.querySelector('.card-title');
-            const preview = card.querySelector('.video-preview');
-            const video = preview?.querySelector('video');
-            
+        document.querySelectorAll('.video-preview').forEach(preview => {
+            const video = preview.querySelector('video');
             if (!video) return; // Skip if it's a YouTube embed
 
-            // Title click handler
-            title.addEventListener('click', () => {
-                preview.classList.toggle('visible');
-            });
-
             const playOverlay = preview.querySelector('.play-overlay');
-            const playPauseBtn = preview.querySelector('.play-pause');
-            const timeBar = preview.querySelector('.time-bar');
-            const timeBarContainer = preview.querySelector('.time-bar-container');
-            const timeDisplay = preview.querySelector('.time-display');
-            const fullscreenBtn = preview.querySelector('.fullscreen-button');
 
             // Play overlay button
             playOverlay.addEventListener('click', () => {
                 preview.classList.add('playing');
                 video.play().catch(e => {
                     console.error('Error playing video:', e);
-                    timeDisplay.textContent = 'Error playing video';
+                    preview.classList.remove('playing');
                 });
-                playPauseBtn.querySelector('i').classList.remove('fa-play');
-                playPauseBtn.querySelector('i').classList.add('fa-pause');
             });
 
             // Error handling
             video.addEventListener('error', (e) => {
                 console.error('Error loading video:', e);
-                timeDisplay.textContent = 'Error loading video';
-                playPauseBtn.style.opacity = '0.5';
-                playPauseBtn.disabled = true;
                 preview.classList.remove('playing');
-            });
-
-            // Loading feedback
-            video.addEventListener('loadstart', () => {
-                timeDisplay.textContent = 'Loading...';
-            });
-
-            video.addEventListener('canplay', () => {
-                playPauseBtn.style.opacity = '1';
-                playPauseBtn.disabled = false;
-                if (video.duration) {
-                    timeDisplay.textContent = `0:00 / ${formatTime(video.duration)}`;
-                }
-            });
-
-            // Play/Pause functionality
-            playPauseBtn.addEventListener('click', () => {
-                if (video.paused) {
-                    preview.classList.add('playing');
-                    video.play().catch(e => {
-                        console.error('Error playing video:', e);
-                        timeDisplay.textContent = 'Error playing video';
-                        preview.classList.remove('playing');
-                    });
-                    playPauseBtn.querySelector('i').classList.remove('fa-play');
-                    playPauseBtn.querySelector('i').classList.add('fa-pause');
-                } else {
-                    video.pause();
-                    preview.classList.remove('playing');
-                    playPauseBtn.querySelector('i').classList.remove('fa-pause');
-                    playPauseBtn.querySelector('i').classList.add('fa-play');
-                }
-            });
-
-            // Time bar functionality
-            timeBarContainer.addEventListener('click', (e) => {
-                const rect = timeBarContainer.getBoundingClientRect();
-                const pos = (e.clientX - rect.left) / rect.width;
-                video.currentTime = pos * video.duration;
-            });
-
-            // Update time bar and display
-            video.addEventListener('timeupdate', () => {
-                const progress = (video.currentTime / video.duration) * 100;
-                timeBar.style.width = `${progress}%`;
-                timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
             });
 
             // Handle video end
             video.addEventListener('ended', () => {
                 preview.classList.remove('playing');
-                playPauseBtn.querySelector('i').classList.remove('fa-pause');
-                playPauseBtn.querySelector('i').classList.add('fa-play');
-                timeBar.style.width = '0%';
+                video.currentTime = 0;
             });
 
-            // Fullscreen functionality
-            fullscreenBtn.addEventListener('click', () => {
-                if (!document.fullscreenElement) {
-                    if (video.requestFullscreen) {
-                        video.requestFullscreen();
-                    } else if (video.webkitRequestFullscreen) {
-                        video.webkitRequestFullscreen();
-                    } else if (video.msRequestFullscreen) {
-                        video.msRequestFullscreen();
-                    }
-                    fullscreenBtn.querySelector('i').classList.remove('fa-expand');
-                    fullscreenBtn.querySelector('i').classList.add('fa-compress');
-                } else {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen();
-                    } else if (document.webkitExitFullscreen) {
-                        document.webkitExitFullscreen();
-                    } else if (document.msExitFullscreen) {
-                        document.msExitFullscreen();
-                    }
-                    fullscreenBtn.querySelector('i').classList.remove('fa-compress');
-                    fullscreenBtn.querySelector('i').classList.add('fa-expand');
-                }
-            });
-
-            // Handle fullscreen changes
-            document.addEventListener('fullscreenchange', () => {
-                if (!document.fullscreenElement) {
-                    fullscreenBtn.querySelector('i').classList.remove('fa-compress');
-                    fullscreenBtn.querySelector('i').classList.add('fa-expand');
-                } else {
-                    fullscreenBtn.querySelector('i').classList.remove('fa-expand');
-                    fullscreenBtn.querySelector('i').classList.add('fa-compress');
+            // Handle video click to pause
+            video.addEventListener('click', () => {
+                if (!video.paused) {
+                    video.pause();
+                    preview.classList.remove('playing');
                 }
             });
         });
